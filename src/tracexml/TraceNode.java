@@ -55,12 +55,9 @@ public class TraceNode {
     String graphMlL3FileName = ConfigReader.getXmlPath() + ConfigReader.getL3Graph();
     runNodeTrace(nodeOID, outputFileName, graphMlL3FileName);
 
-    String outputUniqueFileName = ConfigReader.getXmlPath() + ConfigReader.getTraceNodeUnique();
-    runNodeTraceUnique(outputFileName, outputUniqueFileName);
-
     String oidOutputFileName = ConfigReader.getXmlPath() + ConfigReader.getTraceNodeOid();
     String xmlFileName = ConfigReader.getXmlPath() + "xml-files.xml";
-    runGetNodeOIDs(outputUniqueFileName, oidOutputFileName, graphMlL3FileName, xmlFileName);
+    runGetNodeOIDs(outputFileName, oidOutputFileName, graphMlL3FileName, xmlFileName);
 
     traceMap = runGetNodeDetails(oidOutputFileName, nodeOID);
     return traceMap;
@@ -153,33 +150,6 @@ public class TraceNode {
             }
         } catch (IOException ex) {
               System.out.println("Unable write the results of trace-node.xql to the file " + outputFileName + ". " + ex.getMessage());
-              System.exit(0);
-        }
-    }
-
-    /* filter a node list to create a list of unique nodes returned from a trace */
-    private static void runNodeTraceUnique(final String inputFileName, final String outputFileName) {
-        try{
-            // load the node trace query XQuery
-            String query = readFile(ConfigReader.getXqueryPath() + "trace-node-unique.xql");
-            // Iterate through all query results
-            try(QueryProcessor proc = new QueryProcessor(query, context)) {
-                // Store the pointer to the result in an iterator:
-                proc.bind("trace-doc-name", inputFileName);
-                Iter iter = proc.iter();
-                // Create a serializer instance
-                OutputStream os = new FileOutputStream(outputFileName);
-                try(Serializer ser = proc.getSerializer(os)) {
-                    // Iterate through all items and serialize contents
-                    for(Item item; (item = iter.next()) != null;) {
-                        ser.serialize(item);
-                    }
-                }
-            } catch (QueryException ex) {
-                System.out.println("Error reading results from the trace-node-unique XQuery. " + ex.getMessage());
-            }
-        }   catch (IOException ex) {
-              System.out.println("Unable to locate or read the trace-node-unique.xql. " + ex.getMessage());
               System.exit(0);
         }
     }

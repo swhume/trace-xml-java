@@ -1,0 +1,1657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ODM 
+  xmlns="http://www.cdisc.org/ns/odm/v1.3" 
+  xmlns:def="http://www.cdisc.org/ns/def/v2.0"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:trc="http://www.cdisc.org/ns/trace/v1.0"
+  ODMVersion="1.3.2"
+  FileOID="sdtm-define-safety-v01"
+  FileType="Snapshot"
+  CreationDateTime="2013-03-03T17:04:44"
+  Originator="Trace-XML"
+  SourceSystem="Trace"
+  SourceSystemVersion="1.0.0"
+  > 
+ 
+  <Study OID="trace-xml-safety-01">
+    <GlobalVariables>
+      <StudyName>Trace-XML Safety Demo</StudyName>
+      <StudyDescription>Trace-XML Safety Demo Study</StudyDescription>
+      <ProtocolName>Trace-XML-Safety-01</ProtocolName>
+    </GlobalVariables>
+    <MetaDataVersion OID="MDV.Trace-XML.SDTMIG.3.1.2.SDTM.1.2"
+      Name="Study Trace-XML-01, Data Definitions"
+      Description="Study Trace-XML-01, Data Definitions"
+      def:DefineVersion="2.0.0"
+      def:StandardName="SDTM-IG"
+      def:StandardVersion="3.1.2">
+
+      <!-- ******************** -->
+      <!-- Supporting Documents -->
+      <!-- ******************** -->
+
+      <def:AnnotatedCRF>
+        <def:DocumentRef leafID="LF.blankcrf"/>
+      </def:AnnotatedCRF>
+
+      <def:SupplementalDoc>
+        <def:DocumentRef leafID="LF.ReviewersGuide"/>
+        <def:DocumentRef leafID="LF.ComplexAlgorithms"/>
+        <def:DocumentRef leafID="LF.ODM"/>
+        <def:DocumentRef leafID="LF.SDTM"/>
+      </def:SupplementalDoc>
+ 
+      <!-- Value List Definitions Section -->
+      <def:ValueListDef OID="SDTM.VL.SUPPDM.QVAL">
+        <ItemRef ItemOID="SDTM.IT.SUPPDM.QVAL.RACE1" OrderNumber="1" Mandatory="No" MethodOID="SDTM.MT.RACE">
+          <def:WhereClauseRef WhereClauseOID="WC.SUPPDM.QNAM.RACE1"/>
+        </ItemRef>
+        <ItemRef ItemOID="SDTM.IT.SUPPDM.QVAL.RACE2" OrderNumber="2" Mandatory="No" MethodOID="SDTM.MT.RACE">
+          <def:WhereClauseRef WhereClauseOID="WC.SUPPDM.QNAM.RACE2"/>
+        </ItemRef>
+        <ItemRef ItemOID="SDTM.IT.SUPPDM.QVAL.RACE3" OrderNumber="3" Mandatory="No" MethodOID="SDTM.MT.RACE">
+          <def:WhereClauseRef WhereClauseOID="WC.SUPPDM.QNAM.RACE3"/>
+        </ItemRef>
+        <ItemRef ItemOID="SDTM.IT.SUPPDM.QVAL.RACEOTH" OrderNumber="4" Mandatory="No">
+          <def:WhereClauseRef WhereClauseOID="WC.SUPPDM.QNAM.RACEOTH"/>
+        </ItemRef>
+      </def:ValueListDef>
+      
+      <def:ValueListDef OID="SDTM.VL.VS.VSORRES">
+        <ItemRef ItemOID="SDTM.IT.VS.VSORRES.DIABP" OrderNumber="6" Mandatory="Yes">
+          <def:WhereClauseRef WhereClauseOID="SDTM.WC.VS.VSTESTCD.DIABP"/>
+        </ItemRef>
+        <ItemRef ItemOID="SDTM.IT.VS.VSORRES.FRMSIZE" OrderNumber="8" Mandatory="No">
+          <def:WhereClauseRef WhereClauseOID="SDTM.WC.VS.VSTESTCD.FRMSIZE"/>
+        </ItemRef>
+        <ItemRef ItemOID="SDTM.IT.VS.VSORRES.HEIGHT" OrderNumber="10" Mandatory="Yes">
+          <def:WhereClauseRef WhereClauseOID="SDTM.WC.VS.VSTESTCD.HEIGHT"/>
+        </ItemRef>
+        <ItemRef ItemOID="SDTM.IT.VS.VSORRES.WEIGHT" OrderNumber="26" Mandatory="Yes">
+          <def:WhereClauseRef WhereClauseOID="SDTM.WC.VS.VSTESTCD.WEIGHT"/>
+        </ItemRef>
+        <ItemRef ItemOID="SDTM.IT.VS.VSORRES.PULSE" OrderNumber="17" Mandatory="No">
+          <def:WhereClauseRef WhereClauseOID="SDTM.WC.VS.VSTESTCD.PULSE"/>
+        </ItemRef>
+        <ItemRef ItemOID="SDTM.IT.VS.VSORRES.SYSBP" OrderNumber="22" Mandatory="Yes">
+          <def:WhereClauseRef WhereClauseOID="SDTM.WC.VS.VSTESTCD.SYSBP"/>
+        </ItemRef>
+        <ItemRef ItemOID="SDTM.IT.VS.VSORRES.TEMP" OrderNumber="24" Mandatory="No">
+          <def:WhereClauseRef WhereClauseOID="SDTM.WC.VS.VSTESTCD.TEMP"/>
+        </ItemRef>		
+      </def:ValueListDef>
+      
+      <def:ValueListDef OID="SDTM.VL.VS.VSORRESU">
+        <ItemRef ItemOID="SDTM.IT.VS.VSORRESU.DIABP" OrderNumber="6" Mandatory="Yes">
+          <def:WhereClauseRef WhereClauseOID="SDTM.WC.VS.VSTESTCD.DIABP"/>
+        </ItemRef>
+        <ItemRef ItemOID="SDTM.IT.VS.VSORRESU.FRMSIZE" OrderNumber="8" Mandatory="No">
+          <def:WhereClauseRef WhereClauseOID="SDTM.WC.VS.VSTESTCD.FRMSIZE"/>
+        </ItemRef>
+        <ItemRef ItemOID="SDTM.IT.VS.VSORRESU.HEIGHT" OrderNumber="10" Mandatory="Yes">
+          <def:WhereClauseRef WhereClauseOID="SDTM.WC.VS.VSTESTCD.HEIGHT"/>
+        </ItemRef>
+        <ItemRef ItemOID="SDTM.IT.VS.VSORRESU.PULSE" OrderNumber="17" Mandatory="No">
+          <def:WhereClauseRef WhereClauseOID="SDTM.WC.VS.VSTESTCD.PULSE"/>
+        </ItemRef>
+        <ItemRef ItemOID="SDTM.IT.VS.VSORRESU.SYSBP" OrderNumber="22" Mandatory="Yes">
+          <def:WhereClauseRef WhereClauseOID="SDTM.WC.VS.VSTESTCD.SYSBP"/>
+        </ItemRef>
+        <ItemRef ItemOID="SDTM.IT.VS.VSORRESU.TEMP" OrderNumber="24" Mandatory="No">
+          <def:WhereClauseRef WhereClauseOID="SDTM.WC.VS.VSTESTCD.TEMP"/>
+        </ItemRef>		
+        <ItemRef ItemOID="SDTM.IT.VS.VSORRESU.WEIGHT" OrderNumber="26" Mandatory="Yes">
+          <def:WhereClauseRef WhereClauseOID="SDTM.WC.VS.VSTESTCD.WEIGHT"/>
+        </ItemRef>
+      </def:ValueListDef>
+      
+      <!-- Where Clause Definitions Section -->
+      <def:WhereClauseDef OID="WC.SUPPDM.QNAM.RACE1">
+        <RangeCheck SoftHard="Soft" def:ItemOID="SDTM.IT.SUPPDM.QNAM" Comparator="EQ">
+          <CheckValue>RACE1</CheckValue>
+        </RangeCheck>
+      </def:WhereClauseDef>
+      <def:WhereClauseDef OID="WC.SUPPDM.QNAM.RACE2">
+        <RangeCheck SoftHard="Soft" def:ItemOID="SDTM.IT.SUPPDM.QNAM" Comparator="EQ">
+          <CheckValue>RACE2</CheckValue>
+        </RangeCheck>
+      </def:WhereClauseDef>
+      <def:WhereClauseDef OID="WC.SUPPDM.QNAM.RACE3">
+        <RangeCheck SoftHard="Soft" def:ItemOID="SDTM.IT.SUPPDM.QNAM" Comparator="EQ">
+          <CheckValue>RACE3</CheckValue>
+        </RangeCheck>
+      </def:WhereClauseDef>
+      <def:WhereClauseDef OID="WC.SUPPDM.QNAM.RACEOTH">
+        <RangeCheck SoftHard="Soft" def:ItemOID="SDTM.IT.SUPPDM.QNAM" Comparator="EQ">
+            <CheckValue>RACEOTH</CheckValue>
+          </RangeCheck>
+        </def:WhereClauseDef>
+      
+      <def:WhereClauseDef OID="SDTM.WC.VS.VSTESTCD.DIABP">
+        <RangeCheck SoftHard="Soft" def:ItemOID="SDTM.IT.VS.VSTESTCD" Comparator="EQ">
+          <CheckValue>DIABP</CheckValue>
+        </RangeCheck>
+      </def:WhereClauseDef>
+      <def:WhereClauseDef OID="SDTM.WC.VS.VSTESTCD.FRMSIZE">
+        <RangeCheck SoftHard="Soft" def:ItemOID="SDTM.IT.VS.VSTESTCD" Comparator="EQ">
+          <CheckValue>FRMSIZE</CheckValue>
+        </RangeCheck>
+      </def:WhereClauseDef>
+      <def:WhereClauseDef OID="SDTM.WC.VS.VSTESTCD.HEIGHT">
+        <RangeCheck SoftHard="Soft" def:ItemOID="SDTM.IT.VS.VSTESTCD" Comparator="EQ">
+          <CheckValue>HEIGHT</CheckValue>
+        </RangeCheck>
+      </def:WhereClauseDef>
+      <def:WhereClauseDef OID="SDTM.WC.VS.VSTESTCD.WEIGHT">
+        <RangeCheck SoftHard="Soft" def:ItemOID="SDTM.IT.VS.VSTESTCD" Comparator="EQ">
+          <CheckValue>WEIGHT</CheckValue>
+        </RangeCheck>
+      </def:WhereClauseDef>
+      <def:WhereClauseDef OID="SDTM.WC.VS.VSTESTCD.PULSE">
+        <RangeCheck SoftHard="Soft" def:ItemOID="SDTM.IT.VS.VSTESTCD" Comparator="EQ">
+          <CheckValue>PULSE</CheckValue>
+        </RangeCheck>
+      </def:WhereClauseDef>	  
+      <def:WhereClauseDef OID="SDTM.WC.VS.VSTESTCD.SYSBP">
+        <RangeCheck SoftHard="Soft" def:ItemOID="SDTM.IT.VS.VSTESTCD" Comparator="EQ">
+          <CheckValue>SYSBP</CheckValue>
+        </RangeCheck>
+      </def:WhereClauseDef>
+      <def:WhereClauseDef OID="SDTM.WC.VS.VSTESTCD.TEMP">
+        <RangeCheck SoftHard="Soft" def:ItemOID="SDTM.IT.VS.VSTESTCD" Comparator="EQ">
+          <CheckValue>TEMP</CheckValue>
+        </RangeCheck>
+      </def:WhereClauseDef>
+      
+      <!-- ItemGroupDef Definitions Section (Datasets and and first set of variable properties) -->
+
+      <!-- Dataset Definition (DM) -->
+      <ItemGroupDef OID="SDTM.IG.DM"
+        Domain="DM"
+        Name="DM"
+        Repeating="No"
+        IsReferenceData="No"
+        SASDatasetName="DM"
+        Purpose="Tabulation"
+        def:Structure="One record per subject"
+        def:Class="SPECIAL PURPOSE"
+        def:CommentOID="COM.DOMAIN.DM"
+        def:ArchiveLocationID="LF.DM">
+        <Description>
+          <TranslatedText xml:lang="en">Demographics</TranslatedText>
+        </Description>
+        <ItemRef ItemOID="SDTM.IT.STUDYID" OrderNumber="1" Mandatory="Yes" KeySequence="1"/>
+        <ItemRef ItemOID="SDTM.IT.DM.DOMAIN" OrderNumber="2" Mandatory="Yes"/>
+        <ItemRef ItemOID="SDTM.IT.USUBJID" OrderNumber="3" Mandatory="Yes" KeySequence="2" MethodOID="SDTM.MT.USUBJID"/>
+        <ItemRef ItemOID="SDTM.IT.SUBJID" OrderNumber="4" Mandatory="Yes"/>
+        <ItemRef ItemOID="SDTM.IT.SITEID" OrderNumber="7" Mandatory="Yes"/>
+        <ItemRef ItemOID="SDTM.IT.DM.BRTHDTC" OrderNumber="8" Mandatory="No" MethodOID="SDTM.MT.DOB"/>
+        <ItemRef ItemOID="SDTM.IT.DM.AGE" OrderNumber="9" Mandatory="Yes" MethodOID="SDTM.MT.AGE"/>
+        <ItemRef ItemOID="SDTM.IT.DM.AGEU" OrderNumber="10" Mandatory="No"/>
+        <ItemRef ItemOID="SDTM.IT.DM.SEX" OrderNumber="11" Mandatory="Yes"/>
+        <ItemRef ItemOID="SDTM.IT.DM.RACE" OrderNumber="12" Mandatory="No"/>
+        <ItemRef ItemOID="SDTM.IT.DM.ETHNIC" OrderNumber="13" Mandatory="Yes"/>
+        <ItemRef ItemOID="SDTM.IT.DM.COUNTRY" OrderNumber="14" Mandatory="Yes"/>
+        <ItemRef ItemOID="SDTM.IT.DM.RFSTDTC" OrderNumber="15" Mandatory="No" MethodOID="SDTM.MT.RFSTDTC"/>
+        <def:leaf ID="LF.DM" xlink:href="dm.xpt">
+          <def:title>dm.xpt</def:title>
+        </def:leaf>
+      </ItemGroupDef>
+      
+      <!-- Dataset Definition (SUPPDM) -->
+      <ItemGroupDef OID="SDTM.IG.SUPPDM"
+        Domain="SUPPDM"
+        Name="SUPPDM"
+        Repeating="Yes"
+        IsReferenceData="No"
+        SASDatasetName="SUPPDM"
+        Purpose="Tabulation"
+        def:Structure="One record per IDVAR, IDVARVAL, and QNAM value per subject"
+        def:Class="RELATIONSHIP"
+        def:ArchiveLocationID="LF.SUPPDM">
+        <Description>
+          <TranslatedText xml:lang="en">Supplemental Qualifiers for DM</TranslatedText>
+        </Description>
+        <ItemRef ItemOID="SDTM.IT.STUDYID" OrderNumber="1" Mandatory="Yes" KeySequence="1"/>
+        <ItemRef ItemOID="SDTM.IT.RDOMAIN" OrderNumber="2" Mandatory="Yes" KeySequence="2" MethodOID="SDTM.MT.RDOMAIN"/>
+        <ItemRef ItemOID="SDTM.IT.USUBJID" OrderNumber="3" Mandatory="Yes" KeySequence="3" MethodOID="SDTM.MT.USUBJID"/>
+        <ItemRef ItemOID="SDTM.IT.SUPPDM.IDVAR" OrderNumber="4" Mandatory="No" KeySequence="4"/>
+        <ItemRef ItemOID="SDTM.IT.SUPPDM.IDVARVAL" OrderNumber="5" Mandatory="No" KeySequence="5"/>
+        <ItemRef ItemOID="SDTM.IT.SUPPDM.QNAM" OrderNumber="6" Mandatory="Yes" KeySequence="6"/>
+        <ItemRef ItemOID="SDTM.IT.SUPPDM.QLABEL" OrderNumber="7" Mandatory="Yes"/>
+        <ItemRef ItemOID="SDTM.IT.SUPPDM.QVAL" OrderNumber="8" Mandatory="Yes"/>
+        <ItemRef ItemOID="SDTM.IT.SUPPDM.QORIG" OrderNumber="9" Mandatory="Yes"/>
+        <ItemRef ItemOID="SDTM.IT.SUPPDM.QEVAL" OrderNumber="10" Mandatory="No"/>
+        <def:leaf ID="LF.SUPPDM" xlink:href="suppdm.xpt">
+          <def:title>suppdm.xpt</def:title>
+        </def:leaf>
+      </ItemGroupDef>
+
+      <ItemGroupDef OID="SDTM.IG.VS"
+        Domain="VS"
+        Name="VS"
+        Repeating="Yes"
+        IsReferenceData="No"
+        SASDatasetName="VS"
+        Purpose="Tabulation"
+        def:Structure="One record per vital sign measurement per visit per subject"
+        def:Class="FINDINGS"
+        def:ArchiveLocationID="LF.VS">
+        <Description>
+          <TranslatedText xml:lang="en">Vital Signs</TranslatedText>
+        </Description>
+        <ItemRef ItemOID="SDTM.IT.STUDYID" Mandatory="Yes" OrderNumber="1" Role="Identifier" KeySequence="1"/>
+        <ItemRef ItemOID="SDTM.IT.VS.DOMAIN" Mandatory="Yes" OrderNumber="2" Role="Identifier"/>
+        <ItemRef ItemOID="SDTM.IT.USUBJID" Mandatory="Yes" OrderNumber="3" Role="Identifier" KeySequence="2" MethodOID="SDTM.MT.USUBJID"/>
+        <ItemRef ItemOID="SDTM.IT.VS.VSSEQ" Mandatory="Yes" OrderNumber="4" Role="Identifier"/>
+        <ItemRef ItemOID="SDTM.IT.VS.VSTESTCD" Mandatory="Yes" OrderNumber="7" Role="Topic" KeySequence="3"/>
+        <ItemRef ItemOID="SDTM.IT.VS.VSTEST" Mandatory="Yes" OrderNumber="8" Role="Synonym Qualifier"/>
+        <ItemRef ItemOID="SDTM.IT.VS.VSPOS" Mandatory="No" OrderNumber="11" Role="Record Qualifier" KeySequence="6"/>
+        <ItemRef ItemOID="SDTM.IT.VS.VSORRES" Mandatory="No" OrderNumber="12" Role="Result Qualifier"/>
+        <ItemRef ItemOID="SDTM.IT.VS.VSORRESU" Mandatory="No" OrderNumber="13" Role="Variable Qualifier"/>
+        <ItemRef ItemOID="SDTM.IT.VS.VSSTRESC" Mandatory="No" OrderNumber="14" Role="Result Qualifier" MethodOID="SDTM.MT.VSSTRESC"/>
+        <ItemRef ItemOID="SDTM.IT.VS.VSSTRESN" Mandatory="No" OrderNumber="15" Role="Result Qualifier" MethodOID="SDTM.MT.VSSTRESN"/>
+        <ItemRef ItemOID="SDTM.IT.VS.VSSTRESU" Mandatory="No" OrderNumber="16" Role="Variable Qualifier"/>
+        <ItemRef ItemOID="SDTM.IT.VS.VSBLFL" Mandatory="No" OrderNumber="20" Role="Record Qualifier" MethodOID="SDTM.MT.VSBLFL"/>
+        <ItemRef ItemOID="SDTM.IT.VISITNUM" Mandatory="No" OrderNumber="22" Role="Timing" KeySequence="5"/>
+        <ItemRef ItemOID="SDTM.IT.VISIT" Mandatory="No" OrderNumber="23" Role="Timing"/>
+        <ItemRef ItemOID="SDTM.IT.VISITDY" Mandatory="No" OrderNumber="24" Role="Timing"/>
+        <ItemRef ItemOID="SDTM.IT.VS.VSDTC" Mandatory="No" OrderNumber="25" Role="Timing" KeySequence="4"/>
+        <ItemRef ItemOID="SDTM.IT.VS.VSDY" Mandatory="No" OrderNumber="26" Role="Timing" MethodOID="SDTM.MT.VSDY"/>
+        <def:leaf ID="LF.VS" xlink:href="vs.xpt">
+          <def:title>vs.xpt</def:title>
+        </def:leaf>
+      </ItemGroupDef>
+
+      <!-- Dataset Definition (AE) -->
+      <ItemGroupDef OID="SDTM.IG.AE"
+        Domain="AE"
+        Name="AE"
+        Repeating="Yes"
+        IsReferenceData="No"
+        SASDatasetName="AE"
+        Purpose="Tabulation"
+        def:Structure="One record per adverse event per subject"
+        def:Class="EVENTS"
+        def:ArchiveLocationID="LF.AE">
+        <Description>
+          <TranslatedText xml:lang="en">Adverse Events</TranslatedText>
+        </Description>
+        <ItemRef ItemOID="SDTM.IT.STUDYID" OrderNumber="1" Mandatory="Yes" KeySequence="1"/>
+        <ItemRef ItemOID="SDTM.IT.AE.DOMAIN" OrderNumber="2" Mandatory="Yes"/>
+        <ItemRef ItemOID="SDTM.IT.USUBJID" OrderNumber="3" Mandatory="Yes" KeySequence="2" MethodOID="SDTM.MT.USUBJID"/>
+        <ItemRef ItemOID="SDTM.IT.AE.AESEQ" OrderNumber="4" Mandatory="Yes" KeySequence="3" MethodOID="SDTM.MT.SEQ"/>
+        <ItemRef ItemOID="SDTM.IT.AE.AETERM" OrderNumber="6" Mandatory="Yes"/>
+        <ItemRef ItemOID="SDTM.IT.AE.AEDECOD" OrderNumber="7" Mandatory="Yes"/>
+        <ItemRef ItemOID="SDTM.IT.AE.AEBODSYS" OrderNumber="8" Mandatory="No"/>
+        <ItemRef ItemOID="SDTM.IT.AE.AESEV" OrderNumber="9" Mandatory="Yes"/>
+        <ItemRef ItemOID="SDTM.IT.AE.AESER" OrderNumber="10" Mandatory="Yes"/>
+        <ItemRef ItemOID="SDTM.IT.AE.AEACN" OrderNumber="11" Mandatory="Yes"/>
+        <ItemRef ItemOID="SDTM.IT.AE.AEREL" OrderNumber="12" Mandatory="Yes"/>
+        <ItemRef ItemOID="SDTM.IT.AE.AESTDTC" OrderNumber="13" Mandatory="No"/>
+        <ItemRef ItemOID="SDTM.IT.AE.AEENDTC" OrderNumber="14" Mandatory="No"/>
+        <ItemRef ItemOID="SDTM.IT.AE.AESTDY" OrderNumber="15" Mandatory="No" MethodOID="SDTM.MT.AESTDY"/>
+        <ItemRef ItemOID="SDTM.IT.AE.AEENDY" OrderNumber="16" Mandatory="No" MethodOID="SDTM.MT.AEENDY"/>
+        <def:leaf ID="LF.AE" xlink:href="ae.xpt">
+          <def:title>ae.xpt</def:title>
+        </def:leaf>
+      </ItemGroupDef>
+      
+      <!-- **************************************************************************** -->
+      <!-- ItemDef Definitions Section (Variables and Value List, remaining properties) -->
+      <!-- **************************************************************************** -->
+
+      <ItemDef OID="SDTM.IT.AE.AEACN" Name="AEACN" DataType="text" Length="30" SASFieldName="AEACN">
+        <Description>
+          <TranslatedText xml:lang="en">Action Taken with Study Treatment</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.ACN"/>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="21" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" ItemOID="ODM.IT.AE.AEACN"/>
+          </trc:Trace>          
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.AE.AEBODSYS" Name="AEBODSYS" DataType="text" Length="52" SASFieldName="AEBODSYS">
+        <Description>
+          <TranslatedText xml:lang="en">Body System or Organ Class</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.AEDICT_F"/>
+        <def:Origin Type="Assigned"/>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.AE.AEDECOD" Name="AEDECOD" DataType="text" Length="18" SASFieldName="AEDECOD">
+        <Description>
+          <TranslatedText xml:lang="en">Dictionary-Derived Term</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.AEDICT_F"/>
+        <def:Origin Type="Assigned"/>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.AE.AEENDTC" Name="AEENDTC" DataType="date" SASFieldName="AEENDTC">
+        <Description>
+          <TranslatedText xml:lang="en">End Date/Time of Adverse Event</TranslatedText>
+        </Description>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="21" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" ItemOID="ODM.IT.AE.AEENDTC"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.AE.AEENDY" Name="AEENDY" DataType="integer" Length="3" SASFieldName="AEENDY">
+        <Description>
+          <TranslatedText xml:lang="en">Study Day of End of Adverse Event</TranslatedText>
+        </Description>
+        <def:Origin Type="Derived">
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" ItemOID="ODM.IT.AE.AEENDTC"/>
+            <trc:TraceItem leafID="LF.ODM" ItemOID="ODM.IT.Common.Visit"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+                  
+      <ItemDef OID="SDTM.IT.AE.AEREL" Name="AEREL" DataType="text" Length="16" SASFieldName="AEREL">
+        <Description>
+          <TranslatedText xml:lang="en">Causality</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.AEREL"/>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="21" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" ItemOID="ODM.IT.AE.AEREL"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.AE.AESEQ" Name="AESEQ" DataType="integer" Length="1" SASFieldName="AESEQ">
+        <Description>
+          <TranslatedText xml:lang="en">Sequence Number</TranslatedText>
+        </Description>
+        <!-- change back to Derived when NoInputArguments is implemented -->
+        <def:Origin Type="Derived" trc:NoTraceItems="Yes">
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.AE.AESER" Name="AESER" DataType="text" Length="1" SASFieldName="AESER">
+        <Description>
+          <TranslatedText xml:lang="en">Serious Event</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.NY"/>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="21" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" ItemOID="ODM.IT.AE.AESER"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.AE.AESEV" Name="AESEV" DataType="text" Length="8" SASFieldName="AESEV">
+        <Description>
+          <TranslatedText xml:lang="en">Severity/Intensity</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.AESEV"/>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="21" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" ItemOID="ODM.IT.AE.AESEV"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.AE.AESTDTC" Name="AESTDTC" DataType="date" SASFieldName="AESTDTC">
+        <Description>
+          <TranslatedText xml:lang="en">Start Date/Time of Adverse Event</TranslatedText>
+        </Description>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="21" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" ItemOID="ODM.IT.AE.AESTDTC"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.AE.AESTDY" Name="AESTDY" DataType="integer" Length="3" SASFieldName="AESTDY">
+        <Description>
+          <TranslatedText xml:lang="en">Study Day of Start of Adverse Event</TranslatedText>
+        </Description>
+        <def:Origin Type="Derived">
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" ItemOID="ODM.IT.AE.AESTDTC"/>
+            <trc:TraceItem leafID="LF.ODM" ItemOID="ODM.IT.Common.Visit"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.AE.AETERM" Name="AETERM" DataType="text" Length="25" SASFieldName="AETERM">
+        <Description>
+          <TranslatedText xml:lang="en">Reported Term for the Adverse Event</TranslatedText>
+        </Description>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="21" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" ItemOID="ODM.IT.AE.AETERM"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.AE.DOMAIN" Name="DOMAIN" DataType="text" Length="2" SASFieldName="DOMAIN">
+        <Description>
+          <TranslatedText xml:lang="en">Domain Abbreviation</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.AE.DOMAIN"/>
+        <def:Origin Type="Assigned"/>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.DM.AGE" Name="AGE" DataType="integer" Length="2" SASFieldName="AGE">
+        <Description>
+          <TranslatedText xml:lang="en">Age</TranslatedText>
+        </Description>
+        <def:Origin Type="Derived">
+           <trc:Trace>
+             <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.DM" ItemGroupOID="ODM.IG.COMMON" ItemOID="ODM.IT.Common.Visit"/>	
+             <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.DM" ItemGroupOID="ODM.IG.DM" ItemOID="ODM.IT.DM.BRTHYR"/>	
+             <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.DM" ItemGroupOID="ODM.IG.DM" ItemOID="ODM.IT.DM.BRTHMO"/>
+             <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.DM" ItemGroupOID="ODM.IG.DM" ItemOID="ODM.IT.DM.BRTHDY"/>
+          </trc:Trace>  
+        </def:Origin>  
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.DM.AGEU" Name="AGEU" DataType="text" Length="5" SASFieldName="AGEU"
+        def:CommentOID="SDTM.COM.AGEU">
+        <Description>
+          <TranslatedText xml:lang="en">Age Units</TranslatedText>
+        </Description>
+		    <CodeListRef CodeListOID="SDTM.CL.AGEU"/>
+        <def:Origin Type="Assigned"/>
+      </ItemDef>
+            
+      <ItemDef OID="SDTM.IT.DM.BRTHDTC" Name="BRTHDTC" DataType="date" SASFieldName="BRTHDTC">
+        <Description>
+          <TranslatedText xml:lang="en">Date/Time of Birth</TranslatedText>
+        </Description>
+        <def:Origin Type="Derived">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="6" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.DM" ItemGroupOID="ODM.IG.DM" ItemOID="ODM.IT.DM.BRTHYR"/>	
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.DM" ItemGroupOID="ODM.IG.DM" ItemOID="ODM.IT.DM.BRTHMO"/>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.DM" ItemGroupOID="ODM.IG.DM" ItemOID="ODM.IT.DM.BRTHDY"/>
+          </trc:Trace>  
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.DM.COUNTRY" Name="COUNTRY" DataType="text" Length="3" SASFieldName="COUNTRY">
+        <Description>
+          <TranslatedText xml:lang="en">Country</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.ISO3166"/>
+        <def:Origin Type="Assigned"/>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.DM.RFSTDTC" Name="RFSTDTC" DataType="date" SASFieldName="RFSTDTC">
+        <Description>
+          <TranslatedText xml:lang="en">Subject Reference Start Date/Time</TranslatedText>
+        </Description>
+        <def:Origin Type="Derived">
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" ItemOID="ODM.IT.VS.VSDAT"/>
+          </trc:Trace>          
+        </def:Origin>
+      </ItemDef>      
+      
+      <ItemDef OID="SDTM.IT.DM.DOMAIN" Name="DOMAIN" DataType="text" Length="2" SASFieldName="DOMAIN">
+        <Description>
+          <TranslatedText xml:lang="en">Domain Abbreviation</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.DM.DOMAIN"/>
+        <def:Origin Type="Assigned"/>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.DM.ETHNIC" Name="ETHNIC" DataType="text" Length="22" SASFieldName="ETHNIC">
+        <Description>
+          <TranslatedText xml:lang="en">Ethnicity</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.ETHNIC"/>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="6" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.DM" ItemGroupOID="ODM.IG.DM" ItemOID="ODM.IT.DM.ETHNIC"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="SDTM.IT.DM.RACE" Name="RACE" DataType="text" Length="40" SASFieldName="RACE">
+        <Description>
+          <TranslatedText xml:lang="en">Race</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.RACE"/>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="6" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.DM" ItemGroupOID="ODM.IG.DM" ItemOID="ODM.IT.DM.RACE"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+            
+      <ItemDef OID="SDTM.IT.DM.SEX" Name="SEX" DataType="text" Length="1" SASFieldName="SEX">
+        <Description>
+          <TranslatedText xml:lang="en">Sex</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.SEX"/>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="6" Type="PhysicalRef"/>
+          </def:DocumentRef>
+            <trc:Trace>
+              <trc:TraceItem ItemOID="ODM.IT.DM.SEX"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.SITEID" Name="SITEID" DataType="text" Length="3" SASFieldName="SITEID">
+        <Description>
+          <TranslatedText xml:lang="en">Study Site Identifier</TranslatedText>
+        </Description>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="3" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.DM" ItemGroupOID="ODM.IG.COMMON" ItemOID="ODM.IT.Common.SiteID"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.SUBJID" Name="SUBJID" DataType="text" Length="6" SASFieldName="SUBJID">
+        <Description>
+          <TranslatedText xml:lang="en">Subject Identifier for the Study</TranslatedText>
+        </Description>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="3" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.DM" ItemGroupOID="ODM.IG.COMMON" ItemOID="ODM.IT.Common.SubjectID"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.STUDYID" Name="STUDYID" DataType="text" Length="40" SASFieldName="STUDYID">
+        <Description>
+          <TranslatedText xml:lang="en">Study Identifier</TranslatedText>
+        </Description>
+        <def:Origin Type="CRF">
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.DM" ItemGroupOID="ODM.IG.COMMON" ItemOID="ODM.IT.Common.StudyID"/>
+          </trc:Trace>
+		    </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.USUBJID" Name="USUBJID" DataType="text" Length="30" SASFieldName="USUBJID">
+        <Description>
+          <TranslatedText xml:lang="en">Unique Subject Identifier</TranslatedText>
+        </Description>
+        <def:Origin Type="Derived">
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" ItemOID="ODM.IT.Common.StudyID"/>	
+            <trc:TraceItem leafID="LF.ODM" ItemOID="ODM.IT.Common.SubjectID"/>
+          </trc:Trace>             
+        </def:Origin>
+     </ItemDef>
+      
+      <ItemDef DataType="text" Length="2" Name="RDOMAIN" OID="SDTM.IT.RDOMAIN">
+        <Description>
+          <TranslatedText xml:lang="en">Related Domain Abbreviation</TranslatedText>
+        </Description>
+        <def:Origin Type="Derived">
+          <!-- input for RDOMAIN method comes from SDTM not ODM -->
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.SDTM" ItemOID="SDTM.IT.DM.DOMAIN"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="SDTM.IT.SUPPDM.IDVAR" Name="IDVAR" DataType="text" Length="1" SASFieldName="IDVAR"
+        def:CommentOID="COM.IDVAR">
+        <Description>
+          <TranslatedText xml:lang="en">Identifying Variable</TranslatedText>
+        </Description>
+        <def:Origin Type="Assigned"/>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.SUPPDM.IDVARVAL" Name="IDVARVAL" DataType="text" Length="1" SASFieldName="IDVARVAL"
+        def:CommentOID="COM.IDVARVAL">
+        <Description>
+          <TranslatedText xml:lang="en">Identifying Variable Value</TranslatedText>
+        </Description>
+        <def:Origin Type="Assigned"/>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.SUPPDM.QEVAL" Name="QEVAL" DataType="text" Length="30" SASFieldName="QEVAL">
+        <Description>
+          <TranslatedText xml:lang="en">Evaluator</TranslatedText>
+        </Description>
+        <def:Origin Type="Assigned"/>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.SUPPDM.QLABEL" Name="QLABEL" DataType="text" Length="26" SASFieldName="QLABEL">
+        <Description>
+          <TranslatedText xml:lang="en">Qualifier Variable Label</TranslatedText>
+        </Description>
+        <def:Origin Type="Assigned"/>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.SUPPDM.QNAM" Name="QNAM" DataType="text" Length="8" SASFieldName="QNAM">
+        <Description>
+          <TranslatedText xml:lang="en">Qualifier Variable Name</TranslatedText>
+        </Description>
+        <def:Origin Type="Assigned"/>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.SUPPDM.QORIG" Name="QORIG" DataType="text" Length="11" SASFieldName="QORIG">
+        <Description>
+          <TranslatedText xml:lang="en">Origin</TranslatedText>
+        </Description>
+        <def:Origin Type="Assigned"/>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.SUPPDM.QVAL" Name="QVAL" DataType="text" Length="30" SASFieldName="QVAL">
+        <Description>
+          <TranslatedText xml:lang="en">Data Value</TranslatedText>
+        </Description>
+        <def:ValueListRef ValueListOID="SDTM.VL.SUPPDM.QVAL"/>
+        <def:Origin Type="Assigned"/>
+      </ItemDef>
+        
+      <ItemDef OID="SDTM.IT.SUPPDM.QVAL.RACE1" Name="RACE1" DataType="text" Length="5" SASFieldName="RACE1">
+        <Description>
+          <TranslatedText xml:lang="en">Race 1</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.RACE"/>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="6" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.RACE" ItemGroupOID="ODM.IG.RACE" ItemOID="ODM.IT.DM.RACE.SIOUX"/>	
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.RACE" ItemGroupOID="ODM.IG.RACE" ItemOID="ODM.IT.DM.RACE.APACHE"/>	
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.RACE" ItemGroupOID="ODM.IG.RACE" ItemOID="ODM.IT.DM.RACE.CHEROKEE"/>	
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.RACE" ItemGroupOID="ODM.IG.RACE" ItemOID="ODM.IT.DM.RACE.HAWAIIAN"/>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.RACE" ItemGroupOID="ODM.IG.RACE" ItemOID="ODM.IT.DM.RACE.WHITE"/>
+          </trc:Trace>             
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.SUPPDM.QVAL.RACE2" Name="RACE2" DataType="text" Length="25" SASFieldName="RACE2">
+        <Description>
+          <TranslatedText xml:lang="en">Race 2</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.RACE"/>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="6" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.RACE" ItemGroupOID="ODM.IG.RACE" ItemOID="ODM.IT.DM.RACE.SIOUX"/>	
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.RACE" ItemGroupOID="ODM.IG.RACE" ItemOID="ODM.IT.DM.RACE.APACHE"/>	
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.RACE" ItemGroupOID="ODM.IG.RACE" ItemOID="ODM.IT.DM.RACE.CHEROKEE"/>	
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.RACE" ItemGroupOID="ODM.IG.RACE" ItemOID="ODM.IT.DM.RACE.HAWAIIAN"/>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.RACE" ItemGroupOID="ODM.IG.RACE" ItemOID="ODM.IT.DM.RACE.WHITE"/>
+          </trc:Trace>             
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.SUPPDM.QVAL.RACE3" Name="RACE3" DataType="text" Length="5" SASFieldName="RACE3">
+        <Description>
+          <TranslatedText xml:lang="en">Race 3</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.RACE"/>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="6" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.RACE" ItemGroupOID="ODM.IG.RACE" ItemOID="ODM.IT.DM.RACE.SIOUX"/>	
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.RACE" ItemGroupOID="ODM.IG.RACE" ItemOID="ODM.IT.DM.RACE.APACHE"/>	
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.RACE" ItemGroupOID="ODM.IG.RACE" ItemOID="ODM.IT.DM.RACE.CHEROKEE"/>	
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.RACE" ItemGroupOID="ODM.IG.RACE" ItemOID="ODM.IT.DM.RACE.HAWAIIAN"/>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.RACE" ItemGroupOID="ODM.IG.RACE" ItemOID="ODM.IT.DM.RACE.WHITE"/>
+          </trc:Trace>             
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.SUPPDM.QVAL.RACEOTH" Name="RACEOTH" DataType="text" Length="25" SASFieldName="RACEOTH">
+        <Description>
+          <TranslatedText xml:lang="en">Race, Other</TranslatedText>
+        </Description>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="6" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.DM" ItemGroupOID="ODM.IG.DM" ItemOID="ODM.IT.DM.RACEOTH"/>	
+          </trc:Trace>             
+        </def:Origin>
+      </ItemDef>      
+      
+      <ItemDef DataType="text" Name="DOMAIN" OID="SDTM.IT.VS.DOMAIN" Length="2" SASFieldName="DOMAIN">
+        <Description>
+          <TranslatedText xml:lang="en">Domain Abbreviation</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.VS.DOMAIN"/>
+        <def:Origin Type="Assigned"/>        
+      </ItemDef>
+
+      <!-- check if this should be visit name -->
+      <ItemDef DataType="text" Name="VISIT" OID="SDTM.IT.VISIT" Length="8" SASFieldName="VISIT">
+        <Description>
+          <TranslatedText xml:lang="en">Visit Date</TranslatedText>
+        </Description>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="11" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.DM" ItemGroupOID="ODM.IG.COMMON" ItemOID="ODM.IT.Common.Visit"/>	
+          </trc:Trace>                       
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef DataType="integer" Name="VISITDY" OID="SDTM.IT.VISITDY" Length="3" SASFieldName="VISITDY">
+        <Description>
+          <TranslatedText xml:lang="en">Planned Study Day of Visit</TranslatedText>
+        </Description>
+        <def:Origin Type="Protocol"/>
+      </ItemDef>
+
+      <ItemDef DataType="float" Name="VISITNUM" OID="SDTM.IT.VISITNUM" Length="2" SASFieldName="VISITNUM">
+        <Description>
+          <TranslatedText xml:lang="en">Visit Number</TranslatedText>
+        </Description>
+        <def:Origin Type="Assigned"/>
+      </ItemDef>
+	  
+      <ItemDef DataType="integer" Name="VSDY" OID="SDTM.IT.VS.VSDY" Length="3" SASFieldName="VSDY">
+        <Description>
+          <TranslatedText xml:lang="en">Study Day of Vital Signs</TranslatedText>
+        </Description>
+        <def:Origin Type="Derived">
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.VS" ItemGroupOID="ODM.IG.VS" ItemOID="ODM.IT.VS.VSDAT"/>	
+          </trc:Trace>              
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef DataType="date" Name="VSDTC" OID="SDTM.IT.VS.VSDTC" SASFieldName="VSDTC">
+        <Description>
+          <TranslatedText xml:lang="en">Date/Time of Measurements</TranslatedText>
+        </Description>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="11" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.VS" ItemGroupOID="ODM.IG.VS" ItemOID="ODM.IT.VS.VSDAT"/>	
+          </trc:Trace>                                 
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef DataType="text" Name="VSBLFL" OID="SDTM.IT.VS.VSBLFL" Length="1" SASFieldName="VSBLFL">
+        <Description>
+          <TranslatedText xml:lang="en">Baseline Flag</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="CL.NY"/>
+        <def:Origin Type="Derived">
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.DM" ItemGroupOID="ODM.IG.COMMON" ItemOID="ODM.IT.Common.Visit"/>	
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.VS" ItemGroupOID="ODM.IG.VS_GENERAL" ItemOID="ODM.IT.VS.VSPERF"/>	
+          </trc:Trace>                                 
+        </def:Origin>
+      </ItemDef>
+            
+      <ItemDef DataType="text" Name="VSORRESU" OID="SDTM.IT.VS.VSORRESU" Length="200" SASFieldName="VSORRESU">
+        <Description>
+          <TranslatedText xml:lang="en">Original Units</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.VSRESU"/>         <!-- keep this ? -->
+        <def:ValueListRef ValueListOID="SDTM.VL.VS.VSORRESU"/>
+        <def:Origin Type="Assigned"></def:Origin>
+      </ItemDef>
+
+      <ItemDef DataType="text" Name="VSPOS" OID="SDTM.IT.VS.VSPOS" Length="7" SASFieldName="VSPOS">
+        <Description>
+          <TranslatedText xml:lang="en">Vital Signs Position of Subject</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.POSITION"/>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="11" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.DM" ItemGroupOID="ODM.IG.COMMON" ItemOID="ODM.IT.VS.BP.VSPOS"/>	
+          </trc:Trace>                                           
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef DataType="float" Name="VSSEQ" OID="SDTM.IT.VS.VSSEQ" Length="2" SASFieldName="VSSEQ">
+        <Description>
+          <TranslatedText xml:lang="en">Sequence Number</TranslatedText>
+        </Description>
+        <def:Origin Type="Assigned"/>
+      </ItemDef>
+
+      <ItemDef DataType="text" Name="VSSTRESC" OID="SDTM.IT.VS.VSSTRESC" Length="30" SASFieldName="VSSTRESC">
+        <Description>
+          <TranslatedText xml:lang="en">Character Result/Finding in Std Format</TranslatedText>
+        </Description>
+        <def:Origin Type="Derived">
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.VS" ItemOID="SDTM.IT.VS.VSTESTCD"/>
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.VS" ItemOID="SDTM.IT.VS.VSORRES"/>
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.VS" ItemOID="SDTM.IT.VS.VSORRESU"/>            
+          </trc:Trace>                                                     
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef DataType="text" Name="VSSTRESU" OID="SDTM.IT.VS.VSSTRESU" Length="9" SASFieldName="VSSTRESU">
+        <Description>
+          <TranslatedText xml:lang="en">Standard Units</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.VSRESU"/>
+        <def:Origin Type="Assigned"/>
+      </ItemDef>
+
+      <ItemDef DataType="text" Name="VSTEST" OID="SDTM.IT.VS.VSTEST" Length="24" SASFieldName="VSTEST">
+        <Description>
+          <TranslatedText xml:lang="en">Vital Signs Test Name</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.VSTEST"/>
+        <def:Origin Type="Assigned" />
+      </ItemDef>
+
+      <ItemDef DataType="text" Name="VSTESTCD" OID="SDTM.IT.VS.VSTESTCD" Length="20" SASFieldName="VSTESTCD">
+        <Description>
+          <TranslatedText xml:lang="en">Vital Signs Test Short Name</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.VSTESTCD"/>
+        <def:Origin Type="Assigned"/>
+      </ItemDef>
+
+      <ItemDef DataType="text" Name="VSORRES" OID="SDTM.IT.VS.VSORRES" Length="200" SASFieldName="VSORRES">
+        <Description>
+          <TranslatedText xml:lang="en">Result or Finding in Original Units</TranslatedText>
+        </Description>
+        <def:ValueListRef ValueListOID="SDTM.VL.VS.VSORRES"/>
+        <def:Origin Type="Assigned"/>
+      </ItemDef>
+
+      <ItemDef DataType="float" Name="VSSTRESN" OID="SDTM.IT.VS.VSSTRESN" Length="5" SignificantDigits="1" def:DisplayFormat="5.1" SASFieldName="VSSTRESN">
+        <Description>
+          <TranslatedText xml:lang="en">Numeric Result/Finding in Standard Units</TranslatedText>
+        </Description>
+        <def:Origin Type="Derived">
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.VS" ItemOID="SDTM.IT.VS.VSTESTCD"/>
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.VS" ItemOID="SDTM.IT.VS.VSORRES"/>
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.VS" ItemOID="SDTM.IT.VS.VSORRESU"/>            
+          </trc:Trace>                                                               
+        </def:Origin>
+      </ItemDef>
+      
+      <!-- Value List ItemDef Definitions For VSORRES -->      
+      <ItemDef OID="SDTM.IT.VS.VSORRES.DIABP" Name="SDTM.VS.DIABP.ORRES" DataType="integer" Length="2" SASFieldName="DIABPOR">
+        <Description>
+          <TranslatedText xml:lang="en">Diastolic Blood Pressure (Orig U)</TranslatedText>
+        </Description>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="11" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.VS" ItemGroupOID="ODM.IG.VS" ItemOID="ODM.IT.VS.BP.DIABP.VSORRES"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+            
+      <ItemDef OID="SDTM.IT.VS.VSORRES.FRMSIZE" Name="SDTM.VS.FRMSIZE.ORRES" DataType="text" Length="6" SASFieldName="FRMSZOR">
+        <Description>
+          <TranslatedText xml:lang="en">Body Frame Size (Orig U)</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.SIZE"/>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="11" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.VS" ItemGroupOID="ODM.IG.VS" ItemOID="ODM.IT.VS.FRMSIZE.VSORRES"/>
+          </trc:Trace>
+        </def:Origin>        
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.VS.VSORRES.HEIGHT" Name="SDTM.VS.HEIGHT.ORRES" DataType="float" Length="5" SignificantDigits="1" def:DisplayFormat="5.1" SASFieldName="HEIGHTOR">
+        <Description>
+          <TranslatedText xml:lang="en">Height (Orig U)</TranslatedText>
+        </Description>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="11" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.VS" ItemGroupOID="ODM.IG.VS" ItemOID="ODM.IT.VS.HEIGHT.VSORRES"/>
+          </trc:Trace>
+        </def:Origin>        
+      </ItemDef>
+
+      <ItemDef OID="SDTM.IT.VS.VSORRES.WEIGHT" Name="SDTM.VS.WEIGHT.ORRES" DataType="float" Length="5" SignificantDigits="1" def:DisplayFormat="5.1" SASFieldName="WEIGHTOR">
+        <Description>
+          <TranslatedText xml:lang="en">Weight (Orig U)</TranslatedText>
+        </Description>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="11" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem ItemOID="ODM.IT.VS.WEIGHT.VSORRES"/>
+          </trc:Trace>
+        </def:Origin>        
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.VS.VSORRES.PULSE" Name="SDTM.VS.PULSE.ORRES" DataType="integer" Length="2" SASFieldName="PULSEOR">
+        <Description>
+          <TranslatedText xml:lang="en">Pulse Rate (Orig U)</TranslatedText>
+        </Description>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="11" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.VS" ItemGroupOID="ODM.IG.VS" ItemOID="ODM.IT.VS.PULSE.VSORRES"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="SDTM.IT.VS.VSORRES.SYSBP" Name="SDTM.VS.SYSBP.ORRES" DataType="integer" Length="3" SASFieldName="SYSBPOR">
+        <Description>
+          <TranslatedText xml:lang="en">Systolic Blood Pressure (Orig U)</TranslatedText>
+        </Description>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="11" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.VS" ItemGroupOID="ODM.IG.VS" ItemOID="ODM.IT.VS.BP.SYSBP.VSORRES"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="SDTM.IT.VS.VSORRES.TEMP" Name="SDTM.VS.TEMP.ORRES" DataType="float" SASFieldName="TEMPOR">
+        <Description>
+          <TranslatedText xml:lang="en">Temperature (Orig U)</TranslatedText>
+        </Description>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="11" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.VS" ItemGroupOID="ODM.IG.VS" ItemOID="ODM.IT.VS.TEMP.VSORRES"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <!-- Value List ItemDef Definitions For VSORRESU -->
+      <ItemDef OID="SDTM.IT.VS.VSORRESU.TEMP" Name="SDTM.VS.TEMP.UNITS" DataType="text" Length="5" SASFieldName="TEMPU">
+        <Description>
+          <TranslatedText xml:lang="en">TEMP: Original Units</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.TEMPU"/>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="11" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.VS" ItemGroupOID="ODM.IG.VS" ItemOID="ODM.IT.VS.TEMP.VSORRESU"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>	
+
+      <ItemDef OID="SDTM.IT.VS.VSORRESU.SYSBP" Name="SDTM.VS.SYSBP.UNITS" DataType="text" Length="5" SASFieldName="SYSBPU">
+        <Description>
+          <TranslatedText xml:lang="en">SYSBP: Original Units</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.SYSBPU"/>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="11" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.VS" ItemGroupOID="ODM.IG.VS" ItemOID="ODM.IT.VS.BP.VSORRESU"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>	
+
+      <ItemDef OID="SDTM.IT.VS.VSORRESU.PULSE" Name="SDTM.VS.PULSE.UNITS" DataType="text" Length="5" SASFieldName="PULSEU">
+        <Description>
+          <TranslatedText xml:lang="en">PULSE: Original Units</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.PULSEU"/>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="11" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.VS" ItemGroupOID="ODM.IG.VS" ItemOID="ODM.IT.VS.PULSE.VSORRESU"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>	
+
+      <ItemDef OID="SDTM.IT.VS.VSORRESU.DIABP" Name="SDTM.VS.DIABP.UNITS" DataType="text" Length="5" SASFieldName="DIABPU">
+        <Description>
+          <TranslatedText xml:lang="en">DIABP: Original Units</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.DIABPU"/>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="11" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.VS" ItemGroupOID="ODM.IG.VS" ItemOID="ODM.IT.VS.BP.VSORRESU"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.VS.VSORRESU.HEIGHT" Name="SDTM.VS.HEIGHT.UNITS" DataType="text" Length="5" SASFieldName="HEIGHTU">
+        <Description>
+          <TranslatedText xml:lang="en">Height: Original Units</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.HEIGHTU"/>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="11" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.VS" ItemGroupOID="ODM.IG.VS" ItemOID="ODM.IT.VS.HEIGHT.VSORRESU"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="SDTM.IT.VS.VSORRESU.WEIGHT" Name="SDTM.VS.WEIGHT.UNITS" DataType="text" Length="4" SASFieldName="WEIGHTU">
+        <Description>
+          <TranslatedText xml:lang="en">Weight: Original Units</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="SDTM.CL.WEIGHTU"/>
+        <def:Origin Type="CRF">
+          <def:DocumentRef leafID="LF.blankcrf">
+            <def:PDFPageRef PageRefs="11" Type="PhysicalRef"/>
+          </def:DocumentRef>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ODM" FormOID="ODM.F.VS" ItemGroupOID="ODM.IG.VS" ItemOID="ODM.IT.VS.WEIGHT.VSORRESU"/>
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+
+        <!-- Code List Definitions Section    -->
+      <CodeList OID="SDTM.CL.ACN" Name="Action Taken with Study Treatment" DataType="text">
+        <EnumeratedItem CodedValue="DOSE NOT CHANGED" OrderNumber="1">
+          <Alias Name="C49504" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <EnumeratedItem CodedValue="DOSE REDUCED" OrderNumber="2">
+          <Alias Name="C49505" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <EnumeratedItem CodedValue="DRUG INTERRUPTED" OrderNumber="3">
+          <Alias Name="C49501" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <EnumeratedItem CodedValue="DRUG WITHDRAWN" OrderNumber="4">
+          <Alias Name="C49502" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <Alias Name="C66767" Context="nci:ExtCodeID"/>
+      </CodeList>
+      
+      <CodeList OID="SDTM.CL.AE.DOMAIN" Name="Domain Abbreviation (AE)" DataType="text" SASFormatName="$AEDOMAI">
+        <CodeListItem CodedValue="AE">
+          <Decode>
+            <TranslatedText xml:lang="en">Adverse Events</TranslatedText>
+          </Decode>
+          <Alias Name="C49562" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <Alias Name="C66734" Context="nci:ExtCodeID"/>
+      </CodeList>
+      
+      <CodeList OID="SDTM.CL.AEENRF" Name="Relation to Reference Period (AEENRF)" DataType="text">
+        <EnumeratedItem CodedValue="AFTER">
+          <Alias Name="C38008" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <Alias Name="C66728" Context="nci:ExtCodeID"/>
+      </CodeList>
+      
+      <CodeList OID="SDTM.CL.AEREL" Name="Causality" DataType="text">
+        <EnumeratedItem CodedValue="NOT RELATED"/>
+        <EnumeratedItem CodedValue="POSSIBLY RELATED"/>
+        <EnumeratedItem CodedValue="RELATED"/>
+      </CodeList>
+      
+      <CodeList OID="SDTM.CL.AESEV" Name="Severity/Intensity Scale for Adverse Events" DataType="text" SASFormatName="$AESEV">
+        <CodeListItem CodedValue="MILD" Rank="1">
+          <Decode>
+            <TranslatedText xml:lang="en">Grade 1</TranslatedText>
+          </Decode>
+          <Alias Name="C41338" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="MODERATE" Rank="2">
+          <Decode>
+            <TranslatedText xml:lang="en">Grade 2</TranslatedText>
+          </Decode>
+          <Alias Name="C41339" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="SEVERE" Rank="3">
+          <Decode>
+            <TranslatedText xml:lang="en">Grade 3</TranslatedText>
+          </Decode>
+          <Alias Name="C41340" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <Alias Name="C66769" Context="nci:ExtCodeID"/>
+      </CodeList>
+      
+      <CodeList OID="SDTM.CL.AEDICT_F" Name="Adverse Event Dictionary" DataType="text">
+        <ExternalCodeList Dictionary="MEDDRA" Version="8.0"/>
+      </CodeList>
+            
+      <CodeList OID="SDTM.CL.DM.DOMAIN" Name="Domain Abbreviation (DM)" DataType="text" SASFormatName="$DMDOMAI">
+          <CodeListItem CodedValue="DM">
+            <Decode>
+              <TranslatedText xml:lang="en">Demographics</TranslatedText>
+            </Decode>
+            <Alias Name="C49572" Context="nci:ExtCodeID"/>
+          </CodeListItem>
+          <Alias Name="C66734" Context="nci:ExtCodeID"/>
+      </CodeList>
+
+      <CodeList OID="SDTM.CL.AGEU" Name="Age Unit" DataType="text">
+          <CodeListItem CodedValue="YEARS">
+            <Decode>
+              <TranslatedText xml:lang="en">Year</TranslatedText>
+            </Decode>
+            <Alias Name="C29848" Context="nci:ExtCodeID"/>
+          </CodeListItem>
+          <Alias Name="C66781" Context="nci:ExtCodeID"/>
+        </CodeList>
+		
+      <CodeList OID="SDTM.CL.ETHNIC" Name="Ethnic Group" DataType="text">
+          <EnumeratedItem CodedValue="HISPANIC OR LATINO">
+            <Alias Name="C17459" Context="nci:ExtCodeID"/>
+          </EnumeratedItem>
+          <EnumeratedItem CodedValue="NOT HISPANIC OR LATINO">
+            <Alias Name="C41222" Context="nci:ExtCodeID"/>
+          </EnumeratedItem>
+          <Alias Name="C66790" Context="nci:ExtCodeID"/>
+        </CodeList>
+       
+      <CodeList OID="SDTM.CL.ISO3166" Name="ISO3166" DataType="text">
+          <ExternalCodeList Dictionary="ISO3166" Version=" "/>
+        </CodeList>
+       
+      <CodeList OID="SDTM.CL.RACE" Name="Race" DataType="text">
+          <EnumeratedItem CodedValue="AMERICAN INDIAN OR ALASKA NATIVE" OrderNumber="2">
+            <Alias Name="C41259" Context="nci:ExtCodeID"/>
+          </EnumeratedItem>
+          <EnumeratedItem CodedValue="ASIAN" OrderNumber="4">
+            <Alias Name="C41260" Context="nci:ExtCodeID"/>
+          </EnumeratedItem>
+          <EnumeratedItem CodedValue="BLACK OR AFRICAN AMERICAN" OrderNumber="3">
+            <Alias Name="C16352" Context="nci:ExtCodeID"/>
+          </EnumeratedItem>
+          <EnumeratedItem CodedValue="MULTIPLE" OrderNumber="7" def:ExtendedValue="Yes"/>
+          <EnumeratedItem CodedValue="NATIVE HAWAIIAN OR OTHER PACIFIC ISLANDER" OrderNumber="5">
+            <Alias Name="C41219" Context="nci:ExtCodeID"/>
+          </EnumeratedItem>
+          <EnumeratedItem CodedValue="OTHER" OrderNumber="6" def:ExtendedValue="Yes"/>
+          <EnumeratedItem CodedValue="WHITE" OrderNumber="1">
+            <Alias Name="C41261" Context="nci:ExtCodeID"/>
+          </EnumeratedItem>
+          <Alias Name="C74457" Context="nci:ExtCodeID"/>
+        </CodeList>
+      
+      <CodeList OID="SDTM.CL.VS.DOMAIN" Name="Domain Abbreviation (VS)" DataType="text" SASFormatName="$VSDOMAI">
+        <CodeListItem CodedValue="VS">
+          <Decode>
+            <TranslatedText xml:lang="en">Vital Signs</TranslatedText>
+          </Decode>
+          <Alias Name="C49622" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <Alias Name="C66734" Context="nci:ExtCodeID"/>
+      </CodeList>
+      
+      <CodeList OID="SDTM.CL.DIABPU" Name="Unit (DIABP)" DataType="text" SASFormatName="$DIABPU">
+        <CodeListItem CodedValue="mmHg">
+          <Decode>
+            <TranslatedText xml:lang="en">Millimeter of Mercury</TranslatedText>
+          </Decode>
+          <Alias Name="C49670" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <Alias Name="C66770" Context="nci:ExtCodeID"/>
+      </CodeList>
+      
+      <CodeList OID="SDTM.CL.LBMU" Name="Unit (LBM)" DataType="text" SASFormatName="$LBMU">
+        <CodeListItem CodedValue="LB">
+          <Decode>
+            <TranslatedText xml:lang="en">Pound</TranslatedText>
+          </Decode>
+          <Alias Name="C48531" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <Alias Name="C66770" Context="nci:ExtCodeID"/>
+      </CodeList>
+      
+      <CodeList OID="SDTM.CL.PULSEU" Name="Unit (PULSE)" DataType="text" SASFormatName="$PULSEU">
+        <CodeListItem CodedValue="BEATS/MIN">
+          <Decode>
+            <TranslatedText xml:lang="en">Beats per Minute</TranslatedText>
+          </Decode>
+          <Alias Name="C49673" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <Alias Name="C66770" Context="nci:ExtCodeID"/>
+      </CodeList>
+      
+      <CodeList OID="SDTM.CL.SYSBPU" Name="Unit (SYSBP)" DataType="text" SASFormatName="$SYSBPU">
+        <CodeListItem CodedValue="mmHg">
+          <Decode>
+            <TranslatedText xml:lang="en">Millimeter of Mercury</TranslatedText>
+          </Decode>
+          <Alias Name="C49670" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <Alias Name="C66770" Context="nci:ExtCodeID"/>
+      </CodeList>
+      
+      <CodeList OID="SDTM.CL.TEMPU" Name="Unit (TEMP)" DataType="text" SASFormatName="$TEMPU">
+        <CodeListItem CodedValue="F">
+          <Decode>
+            <TranslatedText xml:lang="en">Degree Fahrenheit</TranslatedText>
+          </Decode>
+          <Alias Name="C44277" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <Alias Name="C66770" Context="nci:ExtCodeID"/>
+      </CodeList>
+      
+      <CodeList OID="SDTM.CL.HEIGHTU" Name="Unit (Height)" DataType="text" SASFormatName="$HEIGHTU">
+        <CodeListItem CodedValue="IN">
+          <Decode>
+            <TranslatedText xml:lang="en">Inch</TranslatedText>
+          </Decode>
+          <Alias Name="C48500" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <Alias Name="C66770" Context="nci:ExtCodeID"/>
+      </CodeList>
+      
+      <CodeList OID="SDTM.CL.WEIGHTU" Name="Unit (Weight)" DataType="text" SASFormatName="$WEIGHTU">
+        <CodeListItem CodedValue="LB">
+          <Decode>
+            <TranslatedText xml:lang="en">Pound</TranslatedText>
+          </Decode>
+          <Alias Name="C48531" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <Alias Name="C66770" Context="nci:ExtCodeID"/>
+      </CodeList>
+      
+      <CodeList OID="SDTM.CL.VSRESU" Name="Units for Vital Signs Results" DataType="text" SASFormatName="$VSRESU">
+        <CodeListItem CodedValue="%">
+          <Decode>
+            <TranslatedText xml:lang="en">Percentage</TranslatedText>
+          </Decode>
+          <Alias Name="C25613" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="BEATS/MIN">
+          <Decode>
+            <TranslatedText xml:lang="en">Beats per Minute</TranslatedText>
+          </Decode>
+          <Alias Name="C49673" Context="nci:ExtCodeID"/>
+        </CodeListItem>		
+        <CodeListItem CodedValue="BREATHS/MIN">
+          <Decode>
+            <TranslatedText xml:lang="en">Breaths per Minute</TranslatedText>
+          </Decode>
+          <Alias Name="C49674" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="C">
+          <Decode>
+            <TranslatedText xml:lang="en">Degree Celsius</TranslatedText>
+          </Decode>
+          <Alias Name="C42559" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="cm">
+          <Decode>
+            <TranslatedText xml:lang="en">Centimeter</TranslatedText>
+          </Decode>
+          <Alias Name="C49668" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="F">
+          <Decode>
+            <TranslatedText xml:lang="en">Degree Fahrenheit</TranslatedText>
+          </Decode>
+          <Alias Name="C44277" Context="nci:ExtCodeID"/>
+        </CodeListItem>		
+        <CodeListItem CodedValue="g">
+          <Decode>
+            <TranslatedText xml:lang="en">Gram</TranslatedText>
+          </Decode>
+          <Alias Name="C48155" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="IN">
+          <Decode>
+            <TranslatedText xml:lang="en">Inch</TranslatedText>
+          </Decode>
+          <Alias Name="C48500" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="kg">
+          <Decode>
+            <TranslatedText xml:lang="en">Kilogram</TranslatedText>
+          </Decode>
+          <Alias Name="C28252" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="kg/m2">
+          <Decode>
+            <TranslatedText xml:lang="en">Kilogram per Square Meter</TranslatedText>
+          </Decode>
+          <Alias Name="C49671" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="LB">
+          <Decode>
+            <TranslatedText xml:lang="en">Pound</TranslatedText>
+          </Decode>
+          <Alias Name="C48531" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="m2">
+          <Decode>
+            <TranslatedText xml:lang="en">Square Meter</TranslatedText>
+          </Decode>
+          <Alias Name="C42569" Context="nci:ExtCodeID"/>
+        </CodeListItem>		
+        <CodeListItem CodedValue="mmHg">
+          <Decode>
+            <TranslatedText xml:lang="en">Millimeter of Mercury</TranslatedText>
+          </Decode>
+          <Alias Name="C49670" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="ohm">
+          <Decode>
+            <TranslatedText xml:lang="en">Ohm</TranslatedText>
+          </Decode>
+          <Alias Name="C42554" Context="nci:ExtCodeID"/>
+        </CodeListItem>		
+        <Alias Name="C66770" Context="nci:ExtCodeID"/>
+      </CodeList>
+      
+      <!-- VSTESTCD Code List -->
+      <CodeList OID="SDTM.CL.VSTESTCD" Name="Vital Signs Test Code" DataType="text" SASFormatName="$VSTESTC">
+        <CodeListItem CodedValue="DIABP">
+          <Decode>
+            <TranslatedText xml:lang="en">Diastolic Blood Pressure</TranslatedText>
+          </Decode>
+          <Alias Name="C25299" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="FRMSIZE">
+          <Decode>
+            <TranslatedText xml:lang="en">Body Frame Size</TranslatedText>
+          </Decode>
+          <Alias Name="C49680" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="HEIGHT">
+          <Decode>
+            <TranslatedText xml:lang="en">Height</TranslatedText>
+          </Decode>
+          <Alias Name="C25347" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="PULSE">
+          <Decode>
+            <TranslatedText xml:lang="en">Pulse Rate</TranslatedText>
+          </Decode>
+          <Alias Name="C49676" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="SYSBP">
+          <Decode>
+            <TranslatedText xml:lang="en">Systolic Blood Pressure</TranslatedText>
+          </Decode>
+          <Alias Name="C25298" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="TEMP">
+          <Decode>
+            <TranslatedText xml:lang="en">Temperature</TranslatedText>
+          </Decode>
+          <Alias Name="C25206" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="WEIGHT">
+          <Decode>
+            <TranslatedText xml:lang="en">Weight</TranslatedText>
+          </Decode>
+          <Alias Name="C25208" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+      </CodeList>
+      
+      <!-- Other Code Lists referenced in VS -->
+      <CodeList DataType="text" Name="No Yes Response" OID="SDTM.CL.NY">
+        <CodeListItem CodedValue="N">
+          <Decode>
+            <TranslatedText xml:lang="en">No</TranslatedText>
+          </Decode>
+          <Alias Name="C49487" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="NA">
+          <Decode>
+            <TranslatedText xml:lang="en">Not Applicable</TranslatedText>
+          </Decode>
+          <Alias Name="C48660" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="Y">
+          <Decode>
+            <TranslatedText xml:lang="en">Yes</TranslatedText>
+          </Decode>
+          <Alias Name="C49488" Context="nci:ExtCodeID"/>
+        </CodeListItem>        
+        <Alias Context="nci:ExtCodeID" Name="C66742"/>
+      </CodeList>
+      
+      <CodeList DataType="text" Name="Position" OID="SDTM.CL.POSITION">
+        <EnumeratedItem CodedValue="SUPINE">
+          <Alias Name="C62167" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>  
+        <EnumeratedItem CodedValue="SITTING">
+          <Alias Name="C62122" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <Alias Context="nci:ExtCodeID" Name="C71148"/>
+      </CodeList>
+      
+      <CodeList DataType="text" Name="Vital Signs Test Name" OID="SDTM.CL.VSTEST">
+        <EnumeratedItem CodedValue="Body Frame Size">
+          <Alias Name="C49680" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <EnumeratedItem CodedValue="Diastolic Blood Pressure">
+          <Alias Name="C25299" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <EnumeratedItem CodedValue="Height">
+          <Alias Name="C25347" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <EnumeratedItem CodedValue="Pulse Rate">
+          <Alias Name="C49676" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <EnumeratedItem CodedValue="Systolic Blood Pressure">
+          <Alias Name="C25298" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <EnumeratedItem CodedValue="Weight">
+          <Alias Name="C25208" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <Alias Context="nci:ExtCodeID" Name="C67153"/>
+      </CodeList>      
+ 
+      <!-- Methods Definitions Section      -->
+
+      <!-- Method Definition: Algorithm included or expanded in an external file -->
+      <MethodDef OID="SDTM.MT.SEQ" Name="Algorithm to derive SEQ" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">Sequential number identifying records within each USUBJID in the domain.</TranslatedText>
+        </Description>
+      </MethodDef>
+      
+      <MethodDef OID="SDTM.MT.AEENDY" Name="Algorithm to derive AEENDY" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">AEENDY = AEENDTC -RFSTDTC+1 if AEENDTC is on or after RFSTDTC. AEENDTC - RFSTDTC if AEENDTC
+            precedes RFSTDTC</TranslatedText>
+        </Description>
+      </MethodDef>
+
+      <MethodDef OID="SDTM.MT.AESTDY" Name="Algorithm to derive AESTDY" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">AESTDY = AESTDTC - RFSTDTC+1 if AESTDTC is on or after RFSTDTC. AESTDTC - RFSTDTC if
+            AESTDTC precedes RFSTDTC</TranslatedText>
+        </Description>
+      </MethodDef>
+      
+      <MethodDef OID="SDTM.MT.AGE" Name="Algorithm to derive AGE" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">Age at Screening Date (Screening Date - Birth date). For the complete algorithm see the referenced external document.</TranslatedText>
+        </Description>
+        <def:DocumentRef leafID="LF.ComplexAlgorithms">
+          <def:PDFPageRef PageRefs="DM" Type="NamedDestination"/>
+        </def:DocumentRef>
+      </MethodDef>
+
+	    <MethodDef OID="SDTM.MT.DOB" Name="Create BRTHDTC from date elements" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">Concatenation of BRTHYR, BRTHMO, and BRTHDY in ISO 8601 format</TranslatedText>
+        </Description>
+      </MethodDef>
+
+      <MethodDef OID="SDTM.MT.USUBJID" Name="Algorithm to derive USUBJID" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">Concatenation of STUDYID and SUBJID</TranslatedText>
+        </Description>
+        <FormalExpression Context="SAS 9.0 or later, as part of a data step assignment or proc sql select and update statements.">
+          catx(".",STUDYID,SUBJID)
+        </FormalExpression>
+      </MethodDef>
+      
+      <MethodDef OID="SDTM.MT.RDOMAIN" Name="Algorithm to derive RDOMAIN" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">Domain abbreviation from where data originated.</TranslatedText>
+        </Description>
+      </MethodDef>
+      
+      <MethodDef OID="SDTM.MT.VSSTRESC" Name="Algorithm to derive VSSTRESC" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">Data collected in non-standard units (i.e. lbs, inches) is converted using standard conversion factors to standard units (kg, cm).</TranslatedText>
+        </Description>
+      </MethodDef>
+      <MethodDef OID="SDTM.MT.VSSTRESN" Name="Algorithm to derive VSSTRESN" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">VSSTRESN = numeric value of VSSTRESC, when VSSTRESC contains numeric data.</TranslatedText>
+        </Description>
+      </MethodDef>
+
+      <MethodDef OID="SDTM.MT.RFSTDTC" Name="Algorithm to derive RFSTDTC" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">RFSTDTC = first date/time of study drug, for safety subject. Null for screen failures.
+          </TranslatedText>
+        </Description>
+      </MethodDef>
+
+      <MethodDef OID="SDTM.MT.VSDY" Name="Algorithm to derive VSDY" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">VSDY = VSDTC-RFSTDTC+1 if VSDTC is on or after RFSTDTC. VSDTC - RFSTDTC if VSDTC precedes RFSTDTC.</TranslatedText>
+        </Description>
+      </MethodDef>
+      
+      <MethodDef OID="SDTM.MT.VSBLFL" Name="Algorithm to derive VSBLFL" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">Safety subjects only: VSBLFL = 'Y' for last record with non Null VSORRES on or before the first dose date (RFSTDTC). Null otherwise.</TranslatedText>
+        </Description>
+      </MethodDef>
+      
+      <MethodDef OID="SDTM.MT.RACE" Name="Algorithm to map multiple RACEs" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">When RACE=Multiple the SUPPDM QVALs for RACE1, RACE2 and RACE3 are assigned by this method.</TranslatedText>
+        </Description>
+      </MethodDef>
+      
+      <!-- Comments Definitions Section     -->
+
+      <def:CommentDef OID="SDTM.COM.AGEU">
+        <Description>
+          <TranslatedText xml:lang="en">Defaulted to YEARS</TranslatedText>
+        </Description>
+      </def:CommentDef>
+      <!-- Comment Definition: Long Comment, included in a PDF file -->
+      <def:CommentDef OID="SDTM.COM.DOMAIN.DM">
+        <Description>
+          <TranslatedText xml:lang="en">See Reviewer's Guide, Section 2.1 Demographics</TranslatedText>
+        </Description>
+        <def:DocumentRef leafID="LF.ReviewersGuide">
+          <def:PDFPageRef PageRefs="section2.1" Type="NamedDestination"/>
+        </def:DocumentRef>
+      </def:CommentDef>
+      <def:CommentDef OID="SDTM.COM.IDVAR">
+        <Description>
+          <TranslatedText xml:lang="en">Name of the variables for the related records.</TranslatedText>
+        </Description>
+      </def:CommentDef>
+      <def:CommentDef OID="SDTM.COM.IDVARVAL">
+        <Description>
+          <TranslatedText xml:lang="en">Value of identifying variable described in IDVAR.</TranslatedText>
+        </Description>
+      </def:CommentDef>
+      <def:CommentDef OID="SDTM.COM.STUDY.DATA">
+        <Description>
+          <TranslatedText xml:lang="en">The data submitted only includes subjects in the USA since other sites did not enroll any subjects.</TranslatedText>
+        </Description>
+      </def:CommentDef>
+      <def:CommentDef OID="SDTM.COM.SUBJECTDATA-JOIN-DM">
+        <Description>
+          <TranslatedText xml:lang="en">Join any Subject Level dataset with the Demographics dataset based on [IG.datasetname]IT.USUBJID = [IG.DM]IT.USUBJID, assuming 'IG.datasetname' is the OID of the ItemGroupDef that defines the subject-level dataset to be joined with the Demographics dataset.</TranslatedText>
+        </Description>
+      </def:CommentDef>
+
+      <!-- ******************************** -->
+      <!-- Leafs Definitions Section        -->
+      <!-- ******************************** -->
+
+      <def:leaf ID="LF.blankcrf" xlink:href="blankcrf.pdf">
+        <def:title>Annotated Case Report Form</def:title>
+      </def:leaf>
+
+      <def:leaf ID="LF.ReviewersGuide" xlink:href="reviewersguide.pdf">
+        <def:title>Reviewers Guide</def:title>
+      </def:leaf>
+
+      <def:leaf ID="LF.ComplexAlgorithms" xlink:href="complexalgorithms.pdf">
+        <def:title>Complex Algorithms</def:title>
+      </def:leaf>
+
+      <def:leaf ID="LF.ODM" xlink:href="cdash-odm-safety-v01.xml">
+        <def:title>CRFs in ODM-XML</def:title>
+      </def:leaf>
+      
+      <def:leaf ID="LF.SDTM" xlink:href="sdtm-define-safety-v01.xml">
+        <def:title>SDTM Datasets in Define-XML</def:title>
+      </def:leaf>
+      
+    </MetaDataVersion>
+  </Study>
+</ODM>

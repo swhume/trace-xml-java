@@ -1,0 +1,1338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ODM xmlns="http://www.cdisc.org/ns/odm/v1.3" 
+     xmlns:def="http://www.cdisc.org/ns/def/v2.0"
+     xmlns:trc="http://www.cdisc.org/ns/trace/v1.0"     
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     ODMVersion="1.3.2" 
+     FileOID="ADaM-Safety-Demo" 
+     FileType="Snapshot" 
+     CreationDateTime="2016-07-03T14:47:00"
+     Originator="Trace-XML"
+     >
+
+  <Study OID="trace-xml-safety-01">
+    <GlobalVariables>
+      <StudyName>Trace-XML Safety Demo</StudyName>
+      <StudyDescription>Trace-XML Safety Demo Study</StudyDescription>
+      <ProtocolName>Trace-XML-Safety-01</ProtocolName>
+    </GlobalVariables>
+    <MetaDataVersion OID="MDV.Trace-XML.ADaMIG.1.0.ADaM.2.1" 
+      Name="Trace-XML Study, Data Definitions" 
+      Description="Trace-XML Study, Data Definitions" 
+      def:DefineVersion="2.0.0"
+      def:StandardName="ADaM-IG" 
+      def:StandardVersion="1.0">
+
+      <!-- ******************** -->
+      <!-- Supporting Documents -->
+      <!-- ******************** -->
+
+      <def:AnnotatedCRF>
+        <def:DocumentRef leafID="blankcrf"/>
+      </def:AnnotatedCRF>
+      <def:SupplementalDoc>
+        <def:DocumentRef leafID="LF.ADAM"/>
+        <def:DocumentRef leafID="LF.SDTM"/>
+        <def:DocumentRef leafID="LF.ADRG"/>
+        <def:DocumentRef leafID="LF.ComplexAlgorithms"/>
+      </def:SupplementalDoc>
+      
+      <def:ValueListDef OID="ADAM.VL.AVAL">
+        <ItemRef ItemOID="ADAM.VS.AVAL.DIABP" Mandatory="No" OrderNumber="1">
+          <def:WhereClauseRef WhereClauseOID="ADAM.WC.VS.AVAL.DIABP"/>					
+        </ItemRef>
+        <ItemRef ItemOID="ADAM.VS.AVAL.HEIGHT" Mandatory="No" OrderNumber="2">
+          <def:WhereClauseRef WhereClauseOID="ADAM.WC.VS.AVAL.HEIGHT"/>					
+        </ItemRef>
+        <ItemRef ItemOID="ADAM.VS.AVAL.WEIGHT" Mandatory="No" OrderNumber="6">
+          <def:WhereClauseRef WhereClauseOID="ADAM.WC.VS.AVAL.WEIGHT"/>					
+        </ItemRef>
+        <ItemRef ItemOID="ADAM.VS.AVAL.PULSE" Mandatory="No" OrderNumber="3">
+          <def:WhereClauseRef WhereClauseOID="ADAM.WC.VS.AVAL.PULSE"/>
+        </ItemRef>
+        <ItemRef ItemOID="ADAM.VS.AVAL.SYSBP" Mandatory="No" OrderNumber="4">
+          <def:WhereClauseRef WhereClauseOID="ADAM.WC.VS.AVAL.SYSBP"/>
+        </ItemRef>
+        <ItemRef ItemOID="ADAM.VS.AVAL.TEMP" Mandatory="No" OrderNumber="5">
+          <def:WhereClauseRef WhereClauseOID="ADAM.WC.VS.AVAL.TEMP"/>
+        </ItemRef>
+        <ItemRef ItemOID="ADAM.VS.AVAL.LWEIGHT" Mandatory="No" OrderNumber="7" MethodOID="ADAM.MT.LOGWEIGHT">
+          <def:WhereClauseRef WhereClauseOID="ADAM.WC.VS.AVAL.LWEIGHT"/>					
+        </ItemRef>
+      </def:ValueListDef>
+      
+      <def:WhereClauseDef OID="ADAM.WC.VS.AVAL.DIABP">
+        <RangeCheck SoftHard="Soft" def:ItemOID="ADAM.IT.VS.PARAMCD" Comparator="EQ">
+          <CheckValue>DIABP</CheckValue>
+        </RangeCheck>
+      </def:WhereClauseDef>
+      <def:WhereClauseDef OID="ADAM.WC.VS.AVAL.HEIGHT">
+        <RangeCheck SoftHard="Soft" def:ItemOID="ADAM.IT.VS.PARAMCD" Comparator="EQ">
+          <CheckValue>HEIGHT</CheckValue>
+        </RangeCheck>
+      </def:WhereClauseDef>
+      <def:WhereClauseDef OID="ADAM.WC.VS.AVAL.WEIGHT">
+        <RangeCheck SoftHard="Soft" def:ItemOID="ADAM.IT.VS.PARAMCD" Comparator="EQ">
+          <CheckValue>WEIGHT</CheckValue>
+        </RangeCheck>
+      </def:WhereClauseDef>
+      <def:WhereClauseDef OID="ADAM.WC.VS.AVAL.PULSE">
+        <RangeCheck SoftHard="Soft" def:ItemOID="ADAM.IT.VS.PARAMCD" Comparator="EQ">
+          <CheckValue>PULSE</CheckValue>
+        </RangeCheck>
+      </def:WhereClauseDef>
+      <def:WhereClauseDef OID="ADAM.WC.VS.AVAL.SYSBP">
+        <RangeCheck SoftHard="Soft" def:ItemOID="ADAM.IT.VS.PARAMCD" Comparator="EQ">
+          <CheckValue>SYSBP</CheckValue>
+        </RangeCheck>
+      </def:WhereClauseDef>
+      <def:WhereClauseDef OID="ADAM.WC.VS.AVAL.TEMP">
+        <RangeCheck SoftHard="Soft" def:ItemOID="ADAM.IT.VS.PARAMCD" Comparator="EQ">
+          <CheckValue>TEMP</CheckValue>
+        </RangeCheck>
+      </def:WhereClauseDef>
+      <def:WhereClauseDef OID="ADAM.WC.VS.AVAL.LWEIGHT">
+        <RangeCheck SoftHard="Soft" def:ItemOID="ADAM.IT.VS.PARAMCD" Comparator="EQ">
+          <CheckValue>LWEIGHT</CheckValue>
+        </RangeCheck>
+      </def:WhereClauseDef>
+
+      <!-- ************************************************************************************ -->
+      <!-- ItemGroupDef Definitions Section (Datasets and and first set of variable properties) -->
+      <!-- ************************************************************************************ -->
+      <!-- ItemGroup Definition (ADSL) -->
+      <ItemGroupDef OID="ADAM.IG.ADSL" Name="ADSL" SASDatasetName="ADSL" Repeating="No" IsReferenceData="No" Purpose="Analysis" def:Structure="one record per subject"
+        def:Class="SUBJECT LEVEL ANALYSIS DATASET" def:CommentOID="COM.ADSL" def:ArchiveLocationID="LF.ADSL">
+        <Description>
+          <TranslatedText xml:lang="en">Subject-Level Analysis</TranslatedText>
+        </Description>
+        <ItemRef ItemOID="ADAM.IT.STUDYID" OrderNumber="1" Mandatory="No"/>
+        <ItemRef ItemOID="ADAM.IT.USUBJID" OrderNumber="2" Mandatory="No" KeySequence="1"/>
+        <ItemRef ItemOID="ADAM.IT.ADSL.SUBJID" OrderNumber="3" Mandatory="No"/>
+        <ItemRef ItemOID="ADAM.IT.SITEID" OrderNumber="4" Mandatory="No"/>
+        <ItemRef ItemOID="ADAM.IT.ADSL.SITEGR1" OrderNumber="5" Mandatory="No" MethodOID="ADAM.MT.ADSL.SITEGR1"/>
+        <ItemRef ItemOID="ADAM.IT.ADSL.TRT01PN" OrderNumber="8" Mandatory="No"/>
+        <ItemRef ItemOID="ADAM.IT.ADSL.TRT01A" OrderNumber="9" Mandatory="No"/>
+        <ItemRef ItemOID="ADAM.IT.ADSL.TRT01AN" OrderNumber="10" Mandatory="No"/>
+        <ItemRef ItemOID="ADAM.IT.ADSL.AGE" OrderNumber="11" Mandatory="No"/>
+        <ItemRef ItemOID="ADAM.IT.ADSL.AGEGR1" OrderNumber="12" Mandatory="No" MethodOID="ADAM.MT.ADSL.AGEGR1"/>
+        <ItemRef ItemOID="ADAM.IT.ADSL.AGEGR1N" OrderNumber="13" Mandatory="No"/>
+        <ItemRef ItemOID="ADAM.IT.ADSL.AGEU" OrderNumber="14" Mandatory="No"/>
+        <ItemRef ItemOID="ADAM.IT.ADSL.RACE" OrderNumber="15" Mandatory="No"/>
+        <ItemRef ItemOID="ADAM.IT.ADSL.RACEN" OrderNumber="16" Mandatory="No"/>
+        <ItemRef ItemOID="ADAM.IT.ADSL.SEX" OrderNumber="17" Mandatory="No"/>
+        <ItemRef ItemOID="ADAM.IT.ADSL.ETHNIC" OrderNumber="18" Mandatory="No"/>
+        <ItemRef ItemOID="ADAM.IT.ADSL.RFSTDTC" OrderNumber="19" Mandatory="No"/>
+        <def:leaf ID="LF.ADSL" xlink:href="adsl.xpt">
+          <def:title>adsl.xpt </def:title>
+        </def:leaf>
+      </ItemGroupDef>
+      
+      <ItemGroupDef IsReferenceData="No" 
+        Name="ADVS" 
+        OID="ADAM.IG.ADVS" 
+        Purpose="Analysis" 
+        Repeating="Yes" 
+        def:ArchiveLocationID="Location.ADVS" 
+        def:Class="Findings" 
+        def:Structure="One record per vital sign measurement per time point per visit per subject">
+        <Description>
+          <TranslatedText xml:lang="en">Vital Signs</TranslatedText>
+        </Description>
+        <ItemRef ItemOID="ADAM.IT.STUDYID" Mandatory="Yes" OrderNumber="1" KeySequence="1"/>
+        <ItemRef ItemOID="ADAM.IT.VS.DOMAIN" Mandatory="Yes" OrderNumber="2" />
+        <ItemRef ItemOID="ADAM.IT.USUBJID" Mandatory="Yes" OrderNumber="3" KeySequence="2"/>
+        <ItemRef ItemOID="ADAM.IT.VS.PARAMCD" Mandatory="Yes" OrderNumber="5" KeySequence="3" MethodOID="ADAM.MT.VSPARAMCD" />
+        <ItemRef ItemOID="ADAM.IT.VS.PARAM" Mandatory="Yes" OrderNumber="6" />
+        <ItemRef ItemOID="ADAM.IT.VS.PARAMTYP" Mandatory="No" OrderNumber="7" />
+        <ItemRef ItemOID="ADAM.IT.VS.AVAL" Mandatory="Yes" OrderNumber="8" />
+        <ItemRef ItemOID="ADAM.IT.VS.ABLFL" Mandatory="No" OrderNumber="9" MethodOID="ADAM.MT.VSABLFL"/>
+        <ItemRef ItemOID="ADAM.IT.VS.VISIT" Mandatory="No" OrderNumber="10" />
+        <ItemRef ItemOID="ADAM.IT.VS.AVISIT" Mandatory="No" OrderNumber="11" KeySequence="4"/>
+        <ItemRef ItemOID="ADAM.IT.VS.ADY" Mandatory="No" OrderNumber="12" />
+        <def:leaf ID="LF.ADVS" xlink:href="advs.xpt">
+          <def:title>advs.xpt </def:title>
+        </def:leaf>
+      </ItemGroupDef>
+      
+      <ItemGroupDef IsReferenceData="No" 
+        Name="ADAE" 
+        OID="ADAM.IG.ADAE" 
+        Purpose="Analysis" 
+        Repeating="Yes" 
+        def:ArchiveLocationID="Location.ADAE" 
+        def:Class="Findings" 
+        def:Structure="one record per subject per each AE recorded in SDTM AE domain">
+        <Description>
+          <TranslatedText xml:lang="en">Adverse Event Analysis Dataset</TranslatedText>
+        </Description>
+        <ItemRef ItemOID="ADAM.IT.ADAE.STUDYID" Mandatory="Yes" OrderNumber="1" KeySequence="1"/>
+        <ItemRef ItemOID="ADAM.IT.ADAE.DOMAIN" Mandatory="Yes" OrderNumber="2" />
+        <ItemRef ItemOID="ADAM.IT.ADAE.USUBJID" Mandatory="Yes" OrderNumber="3" KeySequence="2"/>
+        <ItemRef ItemOID="ADAM.IT.ADAE.AESEQ" Mandatory="Yes" OrderNumber="4"  KeySequence="3"/>
+        <ItemRef ItemOID="ADAM.IT.ADAE.AETERM" Mandatory="Yes" OrderNumber="5" />
+        <ItemRef ItemOID="ADAM.IT.ADAE.AEDECOD" Mandatory="No" OrderNumber="6" />
+        <ItemRef ItemOID="ADAM.IT.ADAE.AEBODSYS" Mandatory="Yes" OrderNumber="7" />
+        <ItemRef ItemOID="ADAM.IT.ADAE.AESTDTC" Mandatory="No" OrderNumber="8" />
+        <ItemRef ItemOID="ADAM.IT.ADAE.AEENDTC" Mandatory="No" OrderNumber="9" />
+        <ItemRef ItemOID="ADAM.IT.ADAE.AESEV" Mandatory="No" OrderNumber="10" />
+        <ItemRef ItemOID="ADAM.IT.ADAE.ASEV" Mandatory="No" OrderNumber="11" />
+        <ItemRef ItemOID="ADAM.IT.ADAE.ASEVN" Mandatory="No" OrderNumber="12" MethodOID="ADAM.MT.ADAE.ASEVN"/>
+        <ItemRef ItemOID="ADAM.IT.ADAE.AEREL" Mandatory="No" OrderNumber="13" />
+        <ItemRef ItemOID="ADAM.IT.ADAE.RELGR1" Mandatory="No" OrderNumber="14" MethodOID="ADAM.MT.ADAE.RELGR1"/>
+        <ItemRef ItemOID="ADAM.IT.ADAE.RELGR1N" Mandatory="No" OrderNumber="15" MethodOID="ADAM.MT.ADAE.RELGR1N"/>
+        <ItemRef ItemOID="ADAM.IT.AE.AESTDY" Mandatory="No" OrderNumber="16"/>
+        <ItemRef ItemOID="ADAM.IT.AE.AEENDY" Mandatory="No" OrderNumber="17"/>
+        <ItemRef ItemOID="ADAM.IT.ADAE.AGE" Mandatory="No" OrderNumber="18" />
+        <ItemRef ItemOID="ADAM.IT.ADAE.AGEGR1" Mandatory="No" OrderNumber="19" />
+        <ItemRef ItemOID="ADAM.IT.ADAE.SEX" Mandatory="No" OrderNumber="20" />
+        <ItemRef ItemOID="ADAM.IT.ADAE.RACE" Mandatory="No" OrderNumber="21" />
+        <ItemRef ItemOID="ADAM.IT.ADAE.AEACN" Mandatory="No" OrderNumber="22" />
+        <def:leaf ID="LF.ADAE" xlink:href="adae.xpt">
+          <def:title>adae.xpt </def:title>
+        </def:leaf>
+      </ItemGroupDef>
+      
+      <!-- ************************************************************************************* -->
+      <!-- ItemDef Definitions Section (Variables and Paramter Value List, remaining properties) -->
+      <!-- ************************************************************************************* -->
+                                    
+      <ItemDef OID="ADAM.IT.AE.AEACN" Name="AEACN" DataType="text" Length="30" SASFieldName="AEACN">
+        <Description>
+          <TranslatedText xml:lang="en">Action Taken with Study Treatment</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.ACN"/>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">AE.AEACN</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemOID="SDTM.IT.AE.AEACN" />
+          </trc:Trace>  
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADAE.AESTDY" Name="AESTDY" DataType="integer" Length="3" SASFieldName="AESTDY">
+        <Description>
+          <TranslatedText xml:lang="en">Study Day of Start of Adverse Event</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">AE.AESTDY</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemOID="SDTM.IT.AE.AESTDY" />
+          </trc:Trace>  
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="SDTM.IT.ADAE.AEENDY" Name="AEENDY" DataType="integer" Length="3" SASFieldName="AEENDY">
+        <Description>
+          <TranslatedText xml:lang="en">Study Day of End of Adverse Event</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">AE.AEENDY</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemOID="SDTM.IT.AE.AEENDY" />
+          </trc:Trace>  
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADAE.AESEQ" Name="AESEQ" DataType="integer" Length="3" SASFieldName="AESEQ">
+        <Description>
+          <TranslatedText xml:lang="en">Sequence Number</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">AE.AESEQ</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemOID="SDTM.IT.AE.AESEQ" />
+          </trc:Trace>  
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADAE.RACE" Name="RACE" SASFieldName="RACE" DataType="text" Length="32">
+        <Description>
+          <TranslatedText xml:lang="en">Race</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.RACE"/>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">ADSL.RACE</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem ItemOID="ADAM.IT.ADSL.RACE" />
+          </trc:Trace>  
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="ADAM.IT.ADAE.SEX" Name="SEX" SASFieldName="SEX" DataType="text" Length="1">
+        <Description>
+          <TranslatedText xml:lang="en">Sex</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.SEX"/>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">ADSL.SEX</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.ADAM" ItemOID="ADAM.IT.ADSL.SEX"/>	
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="ADAM.IT.ADAE.AGEGR1" Name="AGEGR1" SASFieldName="AGEGR1" DataType="text" Length="5">
+        <Description>
+          <TranslatedText xml:lang="en">Pooled Age Group 1</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">ADSL.AGEGR1</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.ADAM" ItemOID="ADAM.IT.ADSL.AGEGR1"/>
+          </trc:Trace>  
+        </def:Origin>			
+      </ItemDef>
+            
+      <ItemDef OID="ADAM.IT.ADAE.AGE" Name="AGE" SASFieldName="AGE" DataType="integer" Length="8">
+        <Description>
+          <TranslatedText xml:lang="en">Age</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">ADSL.AGE</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.ADAM" ItemOID="ADAM.IT.ADSL.AGE" />	
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADAE.RELGR1N" Name="RELGR1N" DataType="integer" SASFieldName="RELGR1N">
+        <Description>
+          <TranslatedText xml:lang="en">Pooled Causality Group 1 (N)</TranslatedText>
+        </Description>
+        <def:Origin Type="Derived">
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.ADAM" ItemOID="ADAM.IT.ADAE.RELGR1" />
+          </trc:Trace>  
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADAE.RELGR1" Name="RELGR1" DataType="text" Length="25" SASFieldName="RELGR1">
+        <Description>
+          <TranslatedText xml:lang="en">Pooled Causality Group 1</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.RELGR1"/>
+        <def:Origin Type="Derived">
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemOID="SDTM.IT.AE.AEREL" />
+          </trc:Trace>  
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADAE.AEREL" Name="AEREL" DataType="text" Length="16" SASFieldName="AEREL">
+        <Description>
+          <TranslatedText xml:lang="en">Causality</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.AEREL"/>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">AE.AEREL</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemOID="SDTM.IT.AE.AEREL" />
+          </trc:Trace>  
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADAE.AESER" Name="AESER" DataType="text" Length="1" SASFieldName="AESER">
+        <Description>
+          <TranslatedText xml:lang="en">Serious Event</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.NY"/>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">AE.AESER</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemOID="SDTM.IT.AE.AESER" />
+          </trc:Trace>  
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADAE.ASEVN" Name="ASEVN" DataType="integer" SASFieldName="ASEVN">
+        <Description>
+          <TranslatedText xml:lang="en">Analysis Severity/Intensity (N)</TranslatedText>
+        </Description>
+        <def:Origin Type="Derived">
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemOID="SDTM.IT.AE.AESEV" />
+          </trc:Trace>  
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADAE.AESEV" Name="AESEV" DataType="text" Length="8" SASFieldName="AESEV">
+        <Description>
+          <TranslatedText xml:lang="en">Severity/Intensity</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.AESEV"/>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">AE.AESEV</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemOID="SDTM.IT.AE.AESEV" />
+          </trc:Trace>  
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADAE.AEBODSYS" Name="AEBODSYS" DataType="text" Length="52" SASFieldName="AEBODSYS">
+        <Description>
+          <TranslatedText xml:lang="en">Body System or Organ Class</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.AEDICT_F"/>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">AE.AEBODSYS</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemOID="SDTM.IT.AE.AEBODSYS" />
+          </trc:Trace>  
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="SDTM.IT.ADAE.AEDECOD" Name="AEDECOD" DataType="text" Length="18" SASFieldName="AEDECOD">
+        <Description>
+          <TranslatedText xml:lang="en">Dictionary-Derived Term</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.AEDICT_F"/>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">AE.AEDECOD</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemOID="SDTM.IT.AE.AEDECOD" />
+          </trc:Trace>  
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADAE.AEENDTC" Name="AEENDTC" DataType="date" SASFieldName="AEENDTC">
+        <Description>
+          <TranslatedText xml:lang="en">End Date/Time of Adverse Event</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">AE.AEENDTC</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemOID="SDTM.IT.AE.AEENDTC" />
+          </trc:Trace>  
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADAE.AESTDTC" Name="AESTDTC" DataType="date" SASFieldName="AESTDTC">
+        <Description>
+          <TranslatedText xml:lang="en">Start Date/Time of Adverse Event</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">AE.AESTDTC</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemOID="SDTM.IT.AE.AESTDTC" />
+          </trc:Trace>  
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADAE.AETERM" Name="AETERM" DataType="text" Length="25" SASFieldName="AETERM">
+        <Description>
+          <TranslatedText xml:lang="en">Reported Term for the Adverse Event</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">AE.AETERM</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemOID="SDTM.IT.AE.AETERM" />
+          </trc:Trace>  
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="ADAM.IT.ADAE.DOMAIN" Name="DOMAIN" DataType="text" Length="2" SASFieldName="DOMAIN">
+        <Description>
+          <TranslatedText xml:lang="en">Domain Abbreviation</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">AE.DOMAIN</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemOID="SDTM.IT.AE.DOMAIN" />
+          </trc:Trace>  
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADAE.STUDYID" Name="STUDYID" SASFieldName="STUDYID" DataType="text" Length="12">
+        <Description>
+          <TranslatedText xml:lang="en">Study Identifier</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">STUDYID</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.AE" ItemOID="SDTM.IT.STUDYID" />
+          </trc:Trace>  
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="ADAM.IT.ADAE.USUBJID" Name="USUBJID" SASFieldName="USUBJID" DataType="text" Length="11">
+        <Description>
+          <TranslatedText xml:lang="en">Unique Subject Identifier</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">AE.USUBJID</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.AE" ItemOID="SDTM.IT.USUBJID" />	
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+
+      <ItemDef OID="ADAM.IT.STUDYID" Name="STUDYID" SASFieldName="STUDYID" DataType="text" Length="12">
+        <Description>
+          <TranslatedText xml:lang="en">Study Identifier</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">STUDYID</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.DM" ItemOID="SDTM.IT.STUDYID" />
+          </trc:Trace>  
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.USUBJID" Name="USUBJID" SASFieldName="USUBJID" DataType="text" Length="11">
+        <Description>
+          <TranslatedText xml:lang="en">Unique Subject Identifier</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">DM.USUBJID</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.DM" ItemOID="SDTM.IT.USUBJID" />	
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADSL.SUBJID" Name="SUBJID" SASFieldName="SUBJID" DataType="text" Length="4">
+        <Description>
+          <TranslatedText xml:lang="en">Subject Identifier for the Study</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">DM.SUBJID</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.DM" ItemOID="SDTM.IT.SUBJID" />	
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.SITEID" Name="SITEID" SASFieldName="SITEID" DataType="text" Length="3">
+        <Description>
+          <TranslatedText xml:lang="en">Study Site Identifier</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">SITEID</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.DM" ItemOID="SDTM.IT.SITEID" />	
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADSL.SITEGR1" Name="SITEGR1" SASFieldName="SITEGR1" DataType="text" Length="3">
+        <Description>
+          <TranslatedText xml:lang="en">Pooled Site Group 1</TranslatedText>
+        </Description>
+        <def:Origin Type="Derived">
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.DM" ItemOID="SDTM.IT.SITEID" />	
+          </trc:Trace>
+        </def:Origin>	
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADSL.TRT01PN" Name="TRT01PN" SASFieldName="TRT01PN" DataType="integer" Length="8" def:CommentOID="COM.ADSL.TRT01PN">
+        <Description>
+          <TranslatedText xml:lang="en">Planned Treatment for Period 01 (N)</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.ARMN"/>
+        <def:Origin Type="Assigned"/>
+      </ItemDef>
+      <ItemDef OID="ADAM.IT.ADSL.TRT01A" Name="TRT01A" SASFieldName="TRT01A" DataType="text" Length="20" def:CommentOID="COM.ADSL.TRT01A">
+        <Description>
+          <TranslatedText xml:lang="en">Actual Treatment for Period 01</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.ARM"/>
+        <def:Origin Type="Assigned" />
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADSL.TRT01AN" Name="TRT01AN" SASFieldName="TRT01AN" DataType="integer" Length="8" def:CommentOID="COM.ADSL.TRT01AN">
+        <Description>
+          <TranslatedText xml:lang="en">Actual Treatment for Period 01 (N)</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.ARMN"/>
+        <def:Origin Type="Assigned"/>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADSL.AGE" Name="AGE" SASFieldName="AGE" DataType="integer" Length="8">
+        <Description>
+          <TranslatedText xml:lang="en">Age</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">
+            <Description>
+            <TranslatedText xml:lang="en">DM.AGE</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.DM" ItemOID="SDTM.IT.DM.AGE" />	
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADSL.AGEGR1N" Name="AGEGR1N" SASFieldName="AGEGR1N" DataType="integer" Length="8" def:CommentOID="COM.ADSL.AGEGR1N">
+        <Description>
+          <TranslatedText xml:lang="en">Pooled Age Group 1 (N)</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.AGEGR1N"/>
+        <def:Origin Type="Assigned"/>
+      </ItemDef>
+      
+      <ItemDef OID="ADAM.IT.ADSL.AGEGR1" Name="AGEGR1" SASFieldName="AGEGR1" DataType="text" Length="5">
+        <Description>
+          <TranslatedText xml:lang="en">Pooled Age Group 1</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.AGEGR1"/>
+        <def:Origin Type="Derived">
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.ADAM" ItemGroupOID="ADAM.IG.ADSL" ItemOID="ADAM.IT.ADSL.AGEGR1N"/>
+          </trc:Trace>  
+    		</def:Origin>			
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADSL.AGEU" Name="AGEU" SASFieldName="AGEU" DataType="text" Length="5">
+        <Description>
+          <TranslatedText xml:lang="en">Age Units</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.AGEU"/>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">DM.AGEU</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="IG.DM" ItemOID="SDTM.IT.DM.AGEU"/>	
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADSL.RACE" Name="RACE" SASFieldName="RACE" DataType="text" Length="32">
+        <Description>
+          <TranslatedText xml:lang="en">Race</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.RACE"/>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">DM.RACE</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.DM" ItemOID="SDTM.IT.DM.RACE" />
+          </trc:Trace>  
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADSL.RACEN" Name="RACEN" SASFieldName="RACEN" DataType="integer" Length="8" def:CommentOID="COM.ADSL.RACEN">
+        <Description>
+          <TranslatedText xml:lang="en">Race (N)</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.RACEN"/>
+        <def:Origin Type="Assigned"/>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADSL.SEX" Name="SEX" SASFieldName="SEX" DataType="text" Length="1">
+        <Description>
+          <TranslatedText xml:lang="en">Sex</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.SEX"/>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">DM.SEX</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.DM" ItemOID="SDTM.IT.DM.SEX"/>	
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADSL.ETHNIC" Name="ETHNIC" SASFieldName="ETHNIC" DataType="text" Length="22">
+        <Description>
+          <TranslatedText xml:lang="en">Ethnicity</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.ETHNIC"/>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">DM.ETHNIC</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.DM" ItemOID="SDTM.IT.DM.ETHNIC" />	
+          </trc:Trace> 
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef OID="ADAM.IT.ADSL.RFSTDTC" Name="RFSTDTC" SASFieldName="RFSTDTC" DataType="datetime" Length="20">
+        <Description>
+          <TranslatedText xml:lang="en">Subject Reference Start Date/Time</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">DM.RFSTDTC</TranslatedText>
+          </Description>
+          <trc:Trace>            
+            <trc:TraceItem leafID="LF.SDTM" ItemOID="SDTM.IT.DM.RFSTDTC" />	
+          </trc:Trace> 
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef DataType="text" Length="2" Name="DOMAIN" OID="ADAM.IT.VS.DOMAIN">
+        <Description>
+          <TranslatedText xml:lang="en">Domain Abbreviation</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">
+          <Description>
+            <TranslatedText xml:lang="en">VS.DOMAIN</TranslatedText>
+          </Description>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.VS" ItemOID="SDTM.IT.VS.DOMAIN"/>	
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef OID="ADAM.IT.VS.AVISIT" Name="AVISIT" SASFieldName="AVISIT" DataType="text" Length="16">
+        <Description>
+          <TranslatedText xml:lang="en">Analysis Visit</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="CL.AVISIT"/>
+        <def:Origin Type="Derived">
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.VS" ItemOID="SDTM.IT.VISIT"/>	
+          </trc:Trace>          
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef DataType="text" Length="8" Name="PARAMCD" OID="ADAM.IT.VS.PARAMCD">
+        <Description>
+          <TranslatedText xml:lang="en">Vital Signs Test Short Name</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.PARAMCD.ADVS"/>				
+        <def:Origin Type="Derived">        
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.VS" ItemOID="SDTM.IT.VS.VSTESTCD"/>	
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef DataType="text" Length="200" Name="PARAM" OID="ADAM.IT.VS.PARAM">
+        <Description>
+          <TranslatedText xml:lang="en">Vital Signs Analysis Parameter Name</TranslatedText>
+        </Description>
+        <def:Origin Type="Assigned"/>        
+      </ItemDef>
+
+      <ItemDef DataType="text" Length="8" Name="PARAMTYP" OID="ADAM.IT.VS.PARAMTYP">
+        <Description>
+          <TranslatedText xml:lang="en">Vital Signs Parameter Type</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.PARAMTYP"/>				
+        <def:Origin Type="Assigned"/>        
+      </ItemDef>
+      
+      <ItemDef DataType="text" Length="5" Name="AVAL" OID="ADAM.IT.VS.AVAL">
+        <Description>
+          <TranslatedText xml:lang="en">Numeric analysis value described by PARAM</TranslatedText>
+        </Description>
+        <def:ValueListRef ValueListOID="ADAM.VL.AVAL"/>
+        <def:Origin Type="Assigned"/>        
+      </ItemDef>
+      
+      <ItemDef DataType="text" Length="12" Name="AVALC" OID="ADAM.IT.VS.AVALC">
+        <Description>
+          <TranslatedText xml:lang="en">Character analysis value described by PARAM</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">        
+          <Description>
+            <TranslatedText xml:lang="en">VS.FRMSIZE.ORRES</TranslatedText>
+          </Description>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.VS" ItemOID="SDTM.VS.FRMSIZE.ORRES"/>	
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef DataType="text" Length="1" Name="ABLFL" OID="ADAM.IT.VS.ABLFL">
+        <Description>
+          <TranslatedText xml:lang="en">Analysis Baseline Flag</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.Y_BLANK"/>
+        <def:Origin Type="Derived">        
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.ADAM" ItemGroupOID="ADAM.IG.ADVS" ItemOID="ADAM.IT.VS.AVISIT"/>	
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef DataType="text" Length="19" Name="VISIT" OID="ADAM.IT.VS.VISIT">
+        <Description>
+          <TranslatedText xml:lang="en">Visit Name</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="ADAM.CL.VISIT"/>
+        <def:Origin Type="Predecessor">        
+          <Description>
+            <TranslatedText xml:lang="en">VS.VISIT</TranslatedText>
+          </Description>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.VS" ItemOID="SDTM.IT.VISIT"/>	
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+            
+      <ItemDef DataType="integer" Length="8" Name="ADY" OID="ADAM.IT.VS.ADY">
+        <Description>
+          <TranslatedText xml:lang="en">Planned Study Day of Visit</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">        
+          <Description>
+            <TranslatedText xml:lang="en">VS.VSDY</TranslatedText>
+          </Description>
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.VS" ItemOID="SDTM.IT.VS.VSDY"/>	
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <!-- Value Level Metadata -->
+      <ItemDef DataType="float" Length="8" Name="DIABP" OID="ADAM.VS.AVAL.DIABP" SignificantDigits="1" def:DisplayFormat="12.1">
+        <Description>
+          <TranslatedText xml:lang="en">Diastolic Blood Pressure</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">        
+          <Description>
+            <TranslatedText xml:lang="en">VS.DIABP.VSORRES</TranslatedText>
+          </Description>
+          <trc:Trace>
+            <!-- ??? technically the VLM is part of the value list not the VS domain -->
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.VS" ItemOID="SDTM.IT.VS.VSORRES.DIABP"/>	
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef DataType="float" Length="8" Name="HEIGHT" OID="ADAM.VS.AVAL.HEIGHT" SignificantDigits="2" def:DisplayFormat="12.2">
+        <Description>
+          <TranslatedText xml:lang="en">Height</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">        
+          <Description>
+            <TranslatedText xml:lang="en">VS.HEIGHT.VSORRES</TranslatedText>
+          </Description>
+          <trc:Trace>
+            <!-- ??? technically the VLM is part of the value list not the VS domain -->
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.VS" ItemOID="SDTM.IT.VS.VSORRES.HEIGHT"/>	
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+
+      <ItemDef DataType="float" Length="8" Name="WEIGHT" OID="ADAM.VS.AVAL.WEIGHT" SignificantDigits="2" def:DisplayFormat="12.2">
+        <Description>
+          <TranslatedText xml:lang="en">Weight</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">        
+          <Description>
+            <TranslatedText xml:lang="en">VS.WEIGHT.VSORRES</TranslatedText>
+          </Description>
+          <trc:Trace>
+            <trc:TraceItem ItemOID="SDTM.IT.VS.VSORRES.WEIGHT"/>	
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef DataType="float" Length="8" Name="PULSE" OID="ADAM.VS.AVAL.PULSE" SignificantDigits="1" def:DisplayFormat="12.1">
+        <Description>
+          <TranslatedText xml:lang="en">Pulse Rate</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">        
+          <Description>
+            <TranslatedText xml:lang="en">VS.PULSE.VSORRES</TranslatedText>
+          </Description>
+          <trc:Trace>
+            <!-- ??? technically the VLM is part of the value list not the VS domain -->
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.VS" ItemOID="SDTM.IT.VS.VSORRES.PULSE"/>	
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef DataType="float" Length="8" Name="SYSBP" OID="ADAM.VS.AVAL.SYSBP" SignificantDigits="1" def:DisplayFormat="12.1">
+        <Description>
+          <TranslatedText xml:lang="en">Systolic Blood Pressure</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">        
+          <Description>
+            <TranslatedText xml:lang="en">VS.SYSBP.VSORRES</TranslatedText>
+          </Description>
+          <trc:Trace>
+            <!-- ??? technically the VLM is part of the value list not the VS domain -->
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.VS" ItemOID="SDTM.IT.VS.VSORRES.SYSBP"/>	
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <ItemDef DataType="float" Length="8" Name="TEMP" OID="ADAM.VS.AVAL.TEMP" SignificantDigits="2" def:DisplayFormat="12.2">
+        <Description>
+          <TranslatedText xml:lang="en">Temperature</TranslatedText>
+        </Description>
+        <def:Origin Type="Predecessor">        
+          <Description>
+            <TranslatedText xml:lang="en">VS.TEMP.VSORRES</TranslatedText>
+          </Description>
+          <trc:Trace>
+            <!-- ??? technically the VLM is part of the value list not the VS domain -->
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.VS" ItemOID="SDTM.IT.VS.VSORRES.TEMP"/>	
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+            
+      <ItemDef DataType="float" Length="8" Name="LOGWEIGHT" OID="ADAM.VS.AVAL.LWEIGHT" SignificantDigits="2" def:DisplayFormat="12.2">
+        <Description>
+          <TranslatedText xml:lang="en">Log10 Weight</TranslatedText>
+        </Description>
+        <def:Origin Type="Derived">        
+          <trc:Trace>
+            <trc:TraceItem leafID="LF.SDTM" ItemGroupOID="SDTM.IG.VS" ItemOID="SDTM.IT.VS.VSORRES.WEIGHT"/>	
+          </trc:Trace>
+        </def:Origin>
+      </ItemDef>
+      
+      <!-- ******************************** -->
+      <!-- Code List Definitions Section    -->
+      <!-- ******************************** -->
+
+      <CodeList OID="ADAM.CL.ACN" Name="Action Taken with Study Treatment" DataType="text">
+        <EnumeratedItem CodedValue="DOSE NOT CHANGED" OrderNumber="1">
+          <Alias Name="C49504" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <EnumeratedItem CodedValue="DOSE REDUCED" OrderNumber="2">
+          <Alias Name="C49505" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <EnumeratedItem CodedValue="DRUG INTERRUPTED" OrderNumber="3">
+          <Alias Name="C49501" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <EnumeratedItem CodedValue="DRUG WITHDRAWN" OrderNumber="4">
+          <Alias Name="C49502" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <Alias Name="C66767" Context="nci:ExtCodeID"/>
+      </CodeList>
+
+      <CodeList OID="ADAM.CL.RELGR1" Name="Pooled Causality Group 1" DataType="text">
+        <EnumeratedItem CodedValue="NOT RELATED"/>
+        <EnumeratedItem CodedValue="RELATED"/>
+      </CodeList>
+
+      <CodeList OID="ADAM.CL.AEREL" Name="Causality" DataType="text">
+        <EnumeratedItem CodedValue="NOT RELATED"/>
+        <EnumeratedItem CodedValue="UNLIKELY RELATED"/>
+        <EnumeratedItem CodedValue="PROBABLY RELATED"/>
+        <EnumeratedItem CodedValue="DEFINITELY RELATED"/>
+      </CodeList>
+
+      <CodeList DataType="text" Name="No Yes Response" OID="ADAM.CL.NY">
+        <CodeListItem CodedValue="N">
+          <Decode>
+            <TranslatedText xml:lang="en">No</TranslatedText>
+          </Decode>
+          <Alias Name="C49487" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="NA">
+          <Decode>
+            <TranslatedText xml:lang="en">Not Applicable</TranslatedText>
+          </Decode>
+          <Alias Name="C48660" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="Y">
+          <Decode>
+            <TranslatedText xml:lang="en">Yes</TranslatedText>
+          </Decode>
+          <Alias Name="C49488" Context="nci:ExtCodeID"/>
+        </CodeListItem>        
+        <Alias Context="nci:ExtCodeID" Name="C66742"/>
+      </CodeList>
+
+      <CodeList OID="ADAM.CL.AESEV" Name="Severity/Intensity Scale for Adverse Events" DataType="text" SASFormatName="$AESEV">
+        <CodeListItem CodedValue="MILD" Rank="1">
+          <Decode>
+            <TranslatedText xml:lang="en">Grade 1</TranslatedText>
+          </Decode>
+          <Alias Name="C41338" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="MODERATE" Rank="2">
+          <Decode>
+            <TranslatedText xml:lang="en">Grade 2</TranslatedText>
+          </Decode>
+          <Alias Name="C41339" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="SEVERE" Rank="3">
+          <Decode>
+            <TranslatedText xml:lang="en">Grade 3</TranslatedText>
+          </Decode>
+          <Alias Name="C41340" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <Alias Name="C66769" Context="nci:ExtCodeID"/>
+      </CodeList>
+
+      <CodeList OID="ADAM.CL.AEDICT_F" Name="Adverse Event Dictionary" DataType="text">
+        <ExternalCodeList Dictionary="MEDDRA" Version="8.0"/>
+      </CodeList>
+
+      <CodeList OID="ADAM.CL.AGEGR1" Name="AGEGR1" DataType="text">
+        <EnumeratedItem CodedValue="&lt;65" Rank="1"/>
+        <EnumeratedItem CodedValue="65-80" Rank="2"/>
+        <EnumeratedItem CodedValue="&gt;80" Rank="3"/>
+      </CodeList>
+
+      <CodeList OID="ADAM.CL.AGEGR1N" Name="AGEGR1N" DataType="integer">
+        <CodeListItem CodedValue="1" OrderNumber="1">
+          <Decode>
+            <TranslatedText xml:lang="en">&lt;65</TranslatedText>
+          </Decode>
+        </CodeListItem>
+        <CodeListItem CodedValue="2" OrderNumber="2">
+          <Decode>
+            <TranslatedText xml:lang="en">65-80</TranslatedText>
+          </Decode>
+        </CodeListItem>
+        <CodeListItem CodedValue="3" OrderNumber="3">
+          <Decode>
+            <TranslatedText xml:lang="en">&gt;80</TranslatedText>
+          </Decode>
+        </CodeListItem>
+      </CodeList>
+
+      <CodeList OID="ADAM.CL.AGEU" Name="Age Unit" DataType="text">
+        <EnumeratedItem CodedValue="YEARS">
+          <Alias Name="C29848" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <Alias Name="C66781" Context="nci:ExtCodeID"/>
+      </CodeList>
+
+      <CodeList OID="ADAM.CL.ARM" Name="ARM" DataType="text">
+        <EnumeratedItem CodedValue="Placebo" OrderNumber="1"/>
+        <EnumeratedItem CodedValue="Xanomeline Low Dose" OrderNumber="2"/>
+        <EnumeratedItem CodedValue="Xanomeline High Dose" OrderNumber="3"/>
+      </CodeList>
+
+      <CodeList OID="ADAM.CL.ARMN" Name="ARMN" DataType="integer">
+        <CodeListItem CodedValue="0" OrderNumber="1">
+          <Decode>
+            <TranslatedText xml:lang="en">Placebo</TranslatedText>
+          </Decode>
+        </CodeListItem>
+        <CodeListItem CodedValue="54" OrderNumber="2">
+          <Decode>
+            <TranslatedText xml:lang="en">Xanomeline Low Dose</TranslatedText>
+          </Decode>
+        </CodeListItem>
+        <CodeListItem CodedValue="81" OrderNumber="3">
+          <Decode>
+            <TranslatedText xml:lang="en">Xanomeline High Dose</TranslatedText>
+          </Decode>
+        </CodeListItem>
+      </CodeList>
+                               
+      <CodeList OID="ADAM.CL.ETHNIC" Name="Ethnic Group" DataType="text">
+        <EnumeratedItem CodedValue="HISPANIC OR LATINO">
+          <Alias Name="C17459" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <EnumeratedItem CodedValue="NOT HISPANIC OR LATINO">
+          <Alias Name="C41222" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <Alias Name="C66790" Context="nci:ExtCodeID"/>
+      </CodeList>
+      
+      <CodeList OID="ADAM.CL.RACE" Name="Race" DataType="text">
+        <EnumeratedItem CodedValue="WHITE" OrderNumber="1">
+          <Alias Name="C41261" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <EnumeratedItem CodedValue="BLACK OR AFRICAN AMERICAN" OrderNumber="2">
+          <Alias Name="C16352" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <EnumeratedItem CodedValue="ASIAN" OrderNumber="3">
+          <Alias Name="C41260" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <EnumeratedItem CodedValue="AMERICAN INDIAN OR ALASKA NATIVE" OrderNumber="4">
+          <Alias Name="C41259" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <Alias Name="C74457" Context="nci:ExtCodeID"/>
+      </CodeList>
+      
+      <CodeList OID="ADAM.CL.RACEN" Name="RACEN" DataType="integer">
+        <CodeListItem CodedValue="1">
+          <Decode>
+            <TranslatedText xml:lang="en">WHITE</TranslatedText>
+          </Decode>
+        </CodeListItem>
+        <CodeListItem CodedValue="2">
+          <Decode>
+            <TranslatedText xml:lang="en">BLACK OR AFRICAN AMERICAN</TranslatedText>
+          </Decode>
+        </CodeListItem>
+        <CodeListItem CodedValue="6">
+          <Decode>
+            <TranslatedText xml:lang="en">AMERICAN INDIAN OR ALASKA NATIVE</TranslatedText>
+          </Decode>
+        </CodeListItem>
+        <CodeListItem CodedValue="7">
+          <Decode>
+            <TranslatedText xml:lang="en">ASIAN</TranslatedText>
+          </Decode>
+        </CodeListItem>
+      </CodeList>
+      
+      <CodeList OID="ADAM.CL.SEX" Name="Sex" DataType="text">
+        <CodeListItem CodedValue="F">
+          <Decode>
+            <TranslatedText xml:lang="en">Female</TranslatedText>
+          </Decode>
+          <Alias Name="C16576" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="M">
+          <Decode>
+            <TranslatedText xml:lang="en">Male</TranslatedText>
+          </Decode>
+          <Alias Name="C20197" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <CodeListItem CodedValue="U">
+          <Decode>
+            <TranslatedText xml:lang="en">Unknown</TranslatedText>
+          </Decode>
+          <Alias Name="C17998" Context="nci:ExtCodeID"/>
+        </CodeListItem>
+        <Alias Name="C66731" Context="nci:ExtCodeID"/>
+      </CodeList>
+
+      <!-- TODO NCI/EVS c-codes -->
+      <CodeList DataType="text" Name="PARAM TYPE" OID="ADAM.CL.PARAMTYP">
+        <EnumeratedItem CodedValue="DERIVED" Rank="1"/>
+      </CodeList>
+      
+      <CodeList DataType="text" Name="Y_BLANK" OID="ADAM.CL.Y_BLANK">
+        <EnumeratedItem CodedValue="Y" Rank="1"/>
+      </CodeList>
+      
+      <CodeList DataType="text" Name="ND" OID="ADAM.CL.ND">
+        <EnumeratedItem CodedValue="NOT DONE" Rank="1"/>
+      </CodeList>
+      
+      <CodeList DataType="text" Name="ADVS PARAMCD" OID="ADAM.CL.PARAMCD.ADVS">
+        <EnumeratedItem CodedValue="NOT DONE" Rank="1"/>
+      </CodeList>			
+      
+      <CodeList OID="ADAM.CL.VSPARAMCD" Name="Vital Signs PARAM Code" DataType="text">
+        <EnumeratedItem CodedValue="DIABP">
+          <Alias Name="C25299" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <EnumeratedItem CodedValue="FRMSIZE">
+          <Alias Name="C49680" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <EnumeratedItem CodedValue="HEIGHT">
+          <Alias Name="C25347" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <EnumeratedItem CodedValue="PULSE">
+          <Alias Name="C49676" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <EnumeratedItem CodedValue="SYSBP">
+          <Alias Name="C25298" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <EnumeratedItem CodedValue="TEMP">
+          <Alias Name="C25206" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+        <EnumeratedItem CodedValue="WEIGHT">
+          <Alias Name="C25208" Context="nci:ExtCodeID"/>
+        </EnumeratedItem>
+      </CodeList>			
+      
+      <CodeList DataType="text" Name="VISIT" OID="ADAM.CL.VISIT">
+        <EnumeratedItem CodedValue="SCREENING 1" Rank="1"/>
+        <EnumeratedItem CodedValue="UNSCHEDULED 1.1" Rank="2"/>
+        <EnumeratedItem CodedValue="UNSCHEDULED 1.2" Rank="3"/>
+        <EnumeratedItem CodedValue="UNSCHEDULED 1.3" Rank="4"/>
+        <EnumeratedItem CodedValue="SCREENING 2" Rank="5"/>
+        <EnumeratedItem CodedValue="BASELINE" Rank="6"/>
+        <EnumeratedItem CodedValue="UNSCHEDULED 3.1" Rank="7"/>
+        <EnumeratedItem CodedValue="AMBUL ECG PLACEMENT" Rank="8"/>
+        <EnumeratedItem CodedValue="WEEK 2" Rank="9"/>
+        <EnumeratedItem CodedValue="UNSCHEDULED 4.1" Rank="10"/>
+        <EnumeratedItem CodedValue="UNSCHEDULED 4.2" Rank="11"/>
+        <EnumeratedItem CodedValue="WEEK 4" Rank="12"/>
+        <EnumeratedItem CodedValue="UNSCHEDULED 5.1" Rank="13"/>
+        <EnumeratedItem CodedValue="AMBUL ECG REMOVAL" Rank="14"/>
+        <EnumeratedItem CodedValue="UNSCHEDULED 6.1" Rank="15"/>
+        <EnumeratedItem CodedValue="WEEK 6" Rank="16"/>
+        <EnumeratedItem CodedValue="UNSCHEDULED 7.1" Rank="17"/>
+        <EnumeratedItem CodedValue="WEEK 8" Rank="18"/>
+        <EnumeratedItem CodedValue="WEEK 10 (T)" Rank="19"/>
+        <EnumeratedItem CodedValue="UNSCHEDULED 8.2" Rank="20"/>
+        <EnumeratedItem CodedValue="WEEK 12" Rank="21"/>
+        <EnumeratedItem CodedValue="WEEK 14 (T)" Rank="22"/>
+        <EnumeratedItem CodedValue="UNSCHEDULED 9.2" Rank="23"/>
+        <EnumeratedItem CodedValue="UNSCHEDULED 9.3" Rank="24"/>
+        <EnumeratedItem CodedValue="WEEK 16" Rank="25"/>
+        <EnumeratedItem CodedValue="WEEK 18 (T)" Rank="26"/>
+        <EnumeratedItem CodedValue="UNSCHEDULED 10.2" Rank="27"/>
+        <EnumeratedItem CodedValue="WEEK 20" Rank="28"/>
+        <EnumeratedItem CodedValue="WEEK 22 (T)" Rank="29"/>
+        <EnumeratedItem CodedValue="UNSCHEDULED 11.2" Rank="30"/>
+        <EnumeratedItem CodedValue="WEEK 24" Rank="31"/>
+        <EnumeratedItem CodedValue="UNSCHEDULED 12.1" Rank="32"/>
+        <EnumeratedItem CodedValue="WEEK 26" Rank="33"/>
+        <EnumeratedItem CodedValue="UNSCHEDULED 13.1" Rank="34"/>
+        <EnumeratedItem CodedValue="AE FOLLOW-UP" Rank="35"/>
+        <EnumeratedItem CodedValue="RETRIEVAL" Rank="36"/>
+        <EnumeratedItem CodedValue="Rash followup" Rank="37"/>
+      </CodeList>
+      
+      <!-- ******************************** -->
+      <!-- Methods Definitions Section      -->
+      <!-- ******************************** -->
+      
+      <MethodDef OID="ADAM.MT.ADAE.RELGR1" Name="AE.ADAE.RELGR1" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">If AE.AEREL is equal to NOT RELATED or UNLIKELY RELATED then RELGR1=Not Related Else 
+            if AE.AEREL is equal to POSSIBLY RELATED or PROBABLY RELATED or DEFINITELY RELATED or Causality is missing
+            then RELGR1=Related</TranslatedText>
+        </Description>
+      </MethodDef>
+
+      <MethodDef OID="ADAM.MT.ADAE.RELGR1N" Name="AE.ADAE.RELGR1N" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">Map RELGR1 to RELGR1N in the following manner: ‘Not Related’ = 0 ‘Related’ = 1</TranslatedText>
+        </Description>
+      </MethodDef>
+      
+      <MethodDef OID="ADAM.MT.ADAE.ASEVN" Name="AE.ADAE.ASVEN" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">Map ASEV to ASEVN in the following manner: Mild = 1, Moderate = 2, Severe = 3 </TranslatedText>
+        </Description>
+      </MethodDef>
+      
+      <MethodDef OID="ADAM.MT.ADSL.SITEGR1" Name="CM.ADSL.SITEGR1" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">refer to SAP, Section 7.1 - if not pooled then SITEGR1=SITEID. If pooled, SITEGR1 will be 900</TranslatedText>
+        </Description>
+      </MethodDef>
+      
+      <MethodDef OID="ADAM.MT.ADSL.AGEGR1" Name="CM.ADSL.AGEGR1" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">Character variable derived from ADSL.AGEGR1N</TranslatedText>
+        </Description>
+      </MethodDef>
+
+      <MethodDef OID="ADAM.MT.VSPARAMCD" Name="Map TESTCD to PARAMCD" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">Map the SDTM VSTESTCDs to PARAMCDs.</TranslatedText>
+        </Description>
+      </MethodDef>
+      
+      <MethodDef OID="ADAM.MT.VSABLFL" Name="Compute Baseline Flag from AVISIT" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">Compute the Baseline Flag from AVISIT.</TranslatedText>
+        </Description>
+      </MethodDef>
+      
+      <MethodDef OID="ADAM.MT.LOGWEIGHT" Name="Calculate Log10 of WEIGHT" Type="Computation">
+        <Description>
+          <TranslatedText xml:lang="en">Calculate Log10(WEIGHT (kg))</TranslatedText>
+        </Description>
+      </MethodDef>
+      
+      <!-- ******************************** -->
+      <!-- Comments Definitions Section     -->
+      <!-- ******************************** -->
+
+      <def:CommentDef OID="COM.ADSL">
+        <Description>
+          <TranslatedText>Screen Failures are excluded since they are not needed for this study analysis</TranslatedText>
+        </Description>
+      </def:CommentDef>
+      <def:CommentDef OID="COM.ADSL.TRT01PN">
+        <Description>
+          <TranslatedText>Numeric code for TRT01P which corresponds to the randomized dose</TranslatedText>
+        </Description>
+      </def:CommentDef>
+      <def:CommentDef OID="COM.ADSL.TRT01A">
+        <Description>
+          <TranslatedText>TRT01A=TRT01P, i.e., no difference between actual and randomized treatment in this study.</TranslatedText>
+        </Description>
+      </def:CommentDef>
+      <def:CommentDef OID="COM.ADSL.TRT01AN">
+        <Description>
+          <TranslatedText>Numeric code for TRT01A which corresponds to the randomized dose</TranslatedText>
+        </Description>
+      </def:CommentDef>
+      <def:CommentDef OID="COM.ADSL.AGEGR1N">
+        <Description>
+          <TranslatedText>AGEGR1 = 1 if AGE &lt;65. AGEGR1 = 2 if AGE 65-80. AGEGR1 = 3 if AGE &gt;80.</TranslatedText>
+        </Description>
+      </def:CommentDef>
+      <def:CommentDef OID="COM.ADSL.RACEN">
+        <Description>
+          <TranslatedText>Numeric code for RACE</TranslatedText>
+        </Description>
+      </def:CommentDef>
+
+      <!-- ******************************** -->
+      <!-- Leafs Definitions Section        -->
+      <!-- ******************************** -->
+
+      <def:leaf ID="LF.ADRG" xlink:href="analysis-data-reviewers-guide.pdf">
+        <def:title>Analysis Data Reviewer's Guide</def:title>
+      </def:leaf>
+
+      <def:leaf ID="LF.SDTM" xlink:href="define2-0-sdtm-odmprov-01-v1.xml">
+        <def:title>SDTM Define-XML File</def:title>
+      </def:leaf>
+
+      <def:leaf ID="LF.ADAM" xlink:href="define2-0-adam-odmprov-01-v1.xml">
+        <def:title>SDTM Define-XML File</def:title>
+      </def:leaf>
+
+      <def:leaf xmlns:xlink="http://www.w3.org/1999/xlink" ID="blankcrf" xlink:href="blankcrf.pdf">
+        <def:title>Annotated Case Report Form</def:title>
+      </def:leaf>
+
+      <def:leaf ID="LF.ComplexAlgorithms" xlink:href="complexalgorithms.pdf">
+        <def:title>Complex Algorithms</def:title>
+      </def:leaf>
+            
+      <!-- ***********************************     -->
+      <!-- End of Metadata Definitions Section     -->
+      <!-- ***********************************     -->
+
+    </MetaDataVersion>
+  </Study>
+</ODM>
