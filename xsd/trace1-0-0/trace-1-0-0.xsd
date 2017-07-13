@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://www.cdisc.org/ns/def/v2.0"
+    xmlns="http://www.cdisc.org/ns/def/v2.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:trc="http://www.cdisc.org/ns/trace/v1.0"
+           elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="trace-extension.xsd"/>
+  <!--
+      Trace-XML 1.0.0 trace-1-0-0 schema
+      Trace-XML 1.0.0 trace-1-0-0 schema released under the Apache Version 2.0 License (http://www.apache.org/licenses/)
+      Copyright (c) 2017 Sam Hume
+  -->
+</xs:schema>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://www.cdisc.org/ns/trace/v1.0"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:odm="http://www.cdisc.org/ns/odm/v1.3"
+  xmlns:def="http://www.cdisc.org/ns/def/v2.0"
+  xmlns:trc="http://www.cdisc.org/ns/trace/v1.0"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!--
+      Trace-XML 1.0.0 share-ns schema
+      Trace-XML 1.0.0 trace-1-0-0 schema released under the Apache Version 2.0 License (http://www.apache.org/licenses/)
+      Copyright (c) 2017 Sam Hume
+  -->
+  <xs:annotation>
+    <xs:documentation>Trace-XML 1.0.0 trace-ns schema</xs:documentation>
+  </xs:annotation>
+
+  <xs:annotation>
+    <xs:documentation>
+      Trace-XML 1.0.0 trace-ns schema released under the Apache Version 2.0 License (http://www.apache.org/licenses/).
+      Copyright (c) 2017 Sam Hume
+      Trace-XML extends Define-XML to explicitly reference source items in Origin in order to generate a directed 
+      graph from the ODM-XML and Define-XML metadata for a study.
+    </xs:documentation>
+  </xs:annotation>
+  
+  <xs:import namespace="http://www.cdisc.org/ns/odm/v1.3" schemaLocation="../odm1-3-2/ODM1-3-2-foundation.xsd"/>
+  
+  <xs:attribute name="NoTraceItems" type="odm:YesOnly">
+    <xs:annotation><xs:documentation>
+      NoTraceItems indicates that there are no source items for an ItemDef Origin that would normally have source items, but in this instance does not. For example,
+      an Origin type of Derived where the derivation takes no source Items as inputs.
+    </xs:documentation></xs:annotation>
+  </xs:attribute>
+  
+  <xs:element name="Trace" type="trc:Trace"/>
+  <xs:complexType name="Trace">
+    <xs:annotation><xs:documentation>
+      The Trace element is intended to define the TraceItems that reference the sources for an Item. The TraceItems are child elements of the Trace parent element.
+    </xs:documentation></xs:annotation>
+    <xs:sequence>
+      <xs:element ref="trc:TraceItem" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:element name="TraceItem" type="trc:TraceItem"/>
+  <xs:complexType name="TraceItem">
+    <xs:annotation><xs:documentation>
+      The TraceItem elements are intended to reference the source ItemDefs that function as the explicit Origin of a given ItemDef. If the Origin type is Derived the
+      TraceItem elements reference the ItemDefs that represent the inputs to the MethodDef performing the derivation.
+    </xs:documentation></xs:annotation>
+    <xs:attribute name="leafID"  type="xs:IDREF" use="optional">
+      <xs:annotation><xs:documentation>leafID references the document containing the TraceItem ItemDef.</xs:documentation></xs:annotation>
+    </xs:attribute>
+      <xs:attribute name="ItemOID" type="odm:oidref" use="required">
+        <xs:annotation><xs:documentation>ItemOID references the OID of the ItemDef that represents the source item. ItemOIDs should be unique per study in Trace-XML.</xs:documentation></xs:annotation>        
+      </xs:attribute>
+      <xs:attribute name="FormOID" type="odm:oidref" use="optional">
+        <xs:annotation><xs:documentation>
+          FormOID references the OID of the FormDef containing the source item (via an ItemGroup). This is primarily used when a source item is referenced in multiple 
+          forms, but only one instance of this item in one form provides the input for this ItemDef.
+        </xs:documentation></xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="ItemGroupOID" type="odm:oidref" use="optional">
+        <xs:annotation><xs:documentation>
+          ItemGroupOID references the OID of the ItemGroupDef containing the source item. This is primarily used when a source item is referenced in multiple ItemGroups, 
+          but only one instance of this item in one ItemGroup provides the input for this ItemDef.
+        </xs:documentation></xs:annotation>        
+      </xs:attribute>
+  </xs:complexType>  
+  
+</xs:schema>
